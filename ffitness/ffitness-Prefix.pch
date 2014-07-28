@@ -13,4 +13,7 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import "macro.h"
+    #import <NSTypeExtended/NSTypeExtended.h>
+    #import "API.h"
 #endif

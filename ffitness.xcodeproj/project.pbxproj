@@ -21,6 +21,15 @@
 		4A3F755D1986E1C800DDA3B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3F753F1986E1C800DDA3B1 /* UIKit.framework */; };
 		4A3F75651986E1C800DDA3B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A3F75631986E1C800DDA3B1 /* InfoPlist.strings */; };
 		4A3F75671986E1C800DDA3B1 /* ffitnessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F75661986E1C800DDA3B1 /* ffitnessTests.m */; };
+		4A3F75721986E45200DDA3B1 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F75711986E45200DDA3B1 /* API.m */; };
+		4A4B554C1986FCD00071B182 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4B554B1986FCD00071B182 /* libxml2.2.dylib */; };
+		4A4B555119870BDF0071B182 /* ScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4B554E19870BDF0071B182 /* ScannerViewController.m */; };
+		4A4B555219870BDF0071B182 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4B555019870BDF0071B182 /* SettingsViewController.m */; };
+		4A4B555619870BE80071B182 /* Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4B555519870BE80071B182 /* Barcode.m */; };
+		4A4B555819870BF40071B182 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4B555719870BF40071B182 /* AVFoundation.framework */; };
+		4A4B555A19870BFD0071B182 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4B555919870BFD0071B182 /* QuartzCore.framework */; };
+		4A4B555D198716FD0071B182 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4B555C198716FD0071B182 /* TableViewController.m */; };
+		EFC0901D261242AE951E21E7 /* libPods-ffitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD73191BC0448AA6CD9C24 /* libPods-ffitness.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01BD73191BC0448AA6CD9C24 /* libPods-ffitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ffitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3F75381986E1C800DDA3B1 /* ffitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ffitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3F753B1986E1C800DDA3B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4A3F753D1986E1C800DDA3B1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +63,21 @@
 		4A3F75621986E1C800DDA3B1 /* ffitnessTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ffitnessTests-Info.plist"; sourceTree = "<group>"; };
 		4A3F75641986E1C800DDA3B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A3F75661986E1C800DDA3B1 /* ffitnessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ffitnessTests.m; sourceTree = "<group>"; };
+		4A3F75701986E45200DDA3B1 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
+		4A3F75711986E45200DDA3B1 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
+		4A4B554A1986E91A0071B182 /* macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macro.h; sourceTree = "<group>"; };
+		4A4B554B1986FCD00071B182 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		4A4B554D19870BDF0071B182 /* ScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScannerViewController.h; sourceTree = "<group>"; };
+		4A4B554E19870BDF0071B182 /* ScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScannerViewController.m; sourceTree = "<group>"; };
+		4A4B554F19870BDF0071B182 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		4A4B555019870BDF0071B182 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		4A4B555419870BE80071B182 /* Barcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Barcode.h; sourceTree = "<group>"; };
+		4A4B555519870BE80071B182 /* Barcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Barcode.m; sourceTree = "<group>"; };
+		4A4B555719870BF40071B182 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		4A4B555919870BFD0071B182 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4A4B555B198716FD0071B182 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		4A4B555C198716FD0071B182 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		B1D18CBFD3A54A80905A80CF /* Pods-ffitness.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ffitness.xcconfig"; path = "Pods/Pods-ffitness.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +85,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A4B555A19870BFD0071B182 /* QuartzCore.framework in Frameworks */,
+				4A4B555819870BF40071B182 /* AVFoundation.framework in Frameworks */,
+				4A4B554C1986FCD00071B182 /* libxml2.2.dylib in Frameworks */,
 				4A3F753E1986E1C800DDA3B1 /* CoreGraphics.framework in Frameworks */,
 				4A3F75401986E1C800DDA3B1 /* UIKit.framework in Frameworks */,
 				4A3F753C1986E1C800DDA3B1 /* Foundation.framework in Frameworks */,
+				EFC0901D261242AE951E21E7 /* libPods-ffitness.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +115,7 @@
 				4A3F75601986E1C800DDA3B1 /* ffitnessTests */,
 				4A3F753A1986E1C800DDA3B1 /* Frameworks */,
 				4A3F75391986E1C800DDA3B1 /* Products */,
+				B1D18CBFD3A54A80905A80CF /* Pods-ffitness.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,10 +131,14 @@
 		4A3F753A1986E1C800DDA3B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A4B555919870BFD0071B182 /* QuartzCore.framework */,
+				4A4B555719870BF40071B182 /* AVFoundation.framework */,
+				4A4B554B1986FCD00071B182 /* libxml2.2.dylib */,
 				4A3F753B1986E1C800DDA3B1 /* Foundation.framework */,
 				4A3F753D1986E1C800DDA3B1 /* CoreGraphics.framework */,
 				4A3F753F1986E1C800DDA3B1 /* UIKit.framework */,
 				4A3F755A1986E1C800DDA3B1 /* XCTest.framework */,
+				01BD73191BC0448AA6CD9C24 /* libPods-ffitness.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,6 +146,14 @@
 		4A3F75411986E1C800DDA3B1 /* ffitness */ = {
 			isa = PBXGroup;
 			children = (
+				4A4B555319870BE80071B182 /* Model */,
+				4A4B554D19870BDF0071B182 /* ScannerViewController.h */,
+				4A4B554E19870BDF0071B182 /* ScannerViewController.m */,
+				4A4B554F19870BDF0071B182 /* SettingsViewController.h */,
+				4A4B555019870BDF0071B182 /* SettingsViewController.m */,
+				4A4B554A1986E91A0071B182 /* macro.h */,
+				4A3F75701986E45200DDA3B1 /* API.h */,
+				4A3F75711986E45200DDA3B1 /* API.m */,
 				4A3F754A1986E1C800DDA3B1 /* AppDelegate.h */,
 				4A3F754B1986E1C800DDA3B1 /* AppDelegate.m */,
 				4A3F754D1986E1C800DDA3B1 /* Main.storyboard */,
@@ -119,6 +161,8 @@
 				4A3F75511986E1C800DDA3B1 /* ViewController.m */,
 				4A3F75531986E1C800DDA3B1 /* Images.xcassets */,
 				4A3F75421986E1C800DDA3B1 /* Supporting Files */,
+				4A4B555B198716FD0071B182 /* TableViewController.h */,
+				4A4B555C198716FD0071B182 /* TableViewController.m */,
 			);
 			path = ffitness;
 			sourceTree = "<group>";
@@ -152,6 +196,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4A4B555319870BE80071B182 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A4B555419870BE80071B182 /* Barcode.h */,
+				4A4B555519870BE80071B182 /* Barcode.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +212,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A3F756A1986E1C800DDA3B1 /* Build configuration list for PBXNativeTarget "ffitness" */;
 			buildPhases = (
+				9FB01F17AE3C4C85BB766046 /* Check Pods Manifest.lock */,
 				4A3F75341986E1C800DDA3B1 /* Sources */,
 				4A3F75351986E1C800DDA3B1 /* Frameworks */,
 				4A3F75361986E1C800DDA3B1 /* Resources */,
+				BBCBDB3270644D82B4C323EF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,6 +254,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = AndruX;
 				TargetAttributes = {
+					4A3F75371986E1C800DDA3B1 = {
+						DevelopmentTeam = BE4464H94U;
+					};
 					4A3F75581986E1C800DDA3B1 = {
 						TestTargetID = 4A3F75371986E1C800DDA3B1;
 					};
@@ -244,6 +302,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9FB01F17AE3C4C85BB766046 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BBCBDB3270644D82B4C323EF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-ffitness-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4A3F75341986E1C800DDA3B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -251,7 +342,12 @@
 			files = (
 				4A3F75521986E1C800DDA3B1 /* ViewController.m in Sources */,
 				4A3F754C1986E1C800DDA3B1 /* AppDelegate.m in Sources */,
+				4A4B555619870BE80071B182 /* Barcode.m in Sources */,
+				4A3F75721986E45200DDA3B1 /* API.m in Sources */,
+				4A4B555219870BDF0071B182 /* SettingsViewController.m in Sources */,
 				4A3F75481986E1C800DDA3B1 /* main.m in Sources */,
+				4A4B555119870BDF0071B182 /* ScannerViewController.m in Sources */,
+				4A4B555D198716FD0071B182 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,9 +469,11 @@
 		};
 		4A3F756B1986E1C800DDA3B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1D18CBFD3A54A80905A80CF /* Pods-ffitness.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ffitness/ffitness-Prefix.pch";
 				INFOPLIST_FILE = "ffitness/ffitness-Info.plist";
@@ -386,9 +484,11 @@
 		};
 		4A3F756C1986E1C800DDA3B1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1D18CBFD3A54A80905A80CF /* Pods-ffitness.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ffitness/ffitness-Prefix.pch";
 				INFOPLIST_FILE = "ffitness/ffitness-Info.plist";
@@ -456,6 +556,7 @@
 				4A3F756C1986E1C800DDA3B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A3F756D1986E1C800DDA3B1 /* Build configuration list for PBXNativeTarget "ffitnessTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +565,7 @@
 				4A3F756F1986E1C800DDA3B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
