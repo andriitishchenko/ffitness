@@ -200,7 +200,7 @@
     NSMutableDictionary*oldD = [[[NSUserDefaults standardUserDefaults] objectForKey:BACKGROUND_DATA_KEY] mutableCopy];
     
     if (oldD && newD) {
-        if ([oldD isEqualToDictionary:newD]) {
+        if (![oldD isEqualToDictionary:newD]) {
             [[NSUserDefaults standardUserDefaults] setObject:newD forKey:BACKGROUND_DATA_KEY];
             AppDelegate*ap = ApplicationDelegate;
             [ap addNottification];
