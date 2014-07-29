@@ -16,6 +16,7 @@
 @property(assign,nonatomic) id<barCodeScanedDelegate> delegate;
 
 - (IBAction)button_cancel_click:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *button_cancel;
 
 @end
 

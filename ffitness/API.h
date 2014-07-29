@@ -25,4 +25,6 @@ typedef NS_ENUM(NSUInteger, RequestMethod) {
 -(void)logOutOnComplete:(void (^)(id response, NSError* error))completion;
 
 +(NSMutableDictionary*)getSuccessCredentials;
+
++(void)skinButton:(UIButton*)button;
 @end

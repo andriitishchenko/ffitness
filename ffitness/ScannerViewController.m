@@ -45,6 +45,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [API skinButton: self.button_cancel];
+    
+    UIButton* buttonbk = [UIButton buttonWithType:UIButtonTypeCustom];
+    [buttonbk setTitle:@"<" forState:UIControlStateNormal];
+    [buttonbk setContentEdgeInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+    buttonbk.titleLabel.transform = CGAffineTransformMakeScale(1,2);
+    [buttonbk sizeToFit];
+    
+    [buttonbk setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [buttonbk addTarget:self action:@selector(leftItem_click:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem*leftItem = [[UIBarButtonItem alloc] initWithCustomView:buttonbk ];
+    [[self navigationItem] setLeftBarButtonItem:leftItem];
+    self.navigationItem.title = NSLocalizedString(@"Barcode scanner", @"Barcode scanner");
+    
     
     [self setupCaptureSession];
     _previewLayer.frame = _previewView.bounds;
@@ -75,6 +91,10 @@
     [self.allowedBarcodeTypes addObject:@"org.gs1.EAN-8"];
 //    [self.allowedBarcodeTypes addObject:@"com.intermec.Code93"];
 //    [self.allowedBarcodeTypes addObject:@"org.iso.Code128"];
+}
+
+-(IBAction)leftItem_click:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UISwitch *switchUpdateAutomaticaly;
 - (IBAction)swichChanged:(id)sender;
 - (IBAction)button_logout_click:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *buttonLoguot;
 
 @end

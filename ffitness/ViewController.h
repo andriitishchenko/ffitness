@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonAuth;
 - (IBAction)buttonAuth_click:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *buttonScan;
 
 
 @end

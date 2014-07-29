@@ -38,4 +38,5 @@
 #define __appcollorsdefile
     #define colorLabelTitle RGB(171, 108, 79)
     #define colorNavigationBarBackground RGB(55, 85, 111)
+    #define colorButtonBackground RGB(133,149,162)
 #endif

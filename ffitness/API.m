@@ -399,4 +399,10 @@
     return (NSMutableDictionary*)[[[NSUserDefaults standardUserDefaults] objectForKey:PAYLOADS] mutableCopy];
 }
 
+
++(void)skinButton:(UIButton*)button
+{
+    button.tintColor = [UIColor whiteColor];
+    button.backgroundColor = colorButtonBackground;
+}
 @end

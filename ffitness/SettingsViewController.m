@@ -47,6 +47,8 @@
     [[self navigationItem] setLeftBarButtonItem:leftItem];
     
     
+    [API skinButton:self.buttonLoguot];
+    
     
         self.navigationItem.title = NSLocalizedString(@"Settings", @"Settings");
     

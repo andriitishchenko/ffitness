@@ -19,7 +19,7 @@
     // Override point for customization after application launch.\
     
     
-    if(application.applicationState == UIApplicationStateInactive){
+//    if(application.applicationState == UIApplicationStateInactive){
         NSMutableDictionary*cfg = [[[NSUserDefaults standardUserDefaults] objectForKey:KEY_CONFIG] mutableCopy];
         if (!cfg) {
             cfg = [NSMutableDictionary new];
@@ -49,7 +49,11 @@
         [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
         [[UINavigationBar appearance] setBarTintColor: colorNavigationBarBackground];
         [[UIToolbar appearance ] setTintColor:colorNavigationBarBackground];
-    }
+    
+//        [[UIButton appearance ] setTintColor:[UIColor whiteColor]];
+//        [[UIButton appearance ] setBackgroundColor:colorButtonBackground];
+
+//    }
     
     
     
@@ -113,7 +117,7 @@
     NSString* count = [[oldD objectForKey:KEY_BALANCE] emptyForNil];
     NSString*msg = [NSString stringWithFormat:@"%@: %@\n%@ %@", NSLocalizedString(@"Remaining visits", @"Remaining visits"),count,NSLocalizedString(@"till", @"till"),exp];
     
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    //[[UIApplication sharedApplication] cancelAllLocalNotifications];
     
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     

@@ -56,6 +56,8 @@
             }
         }];
     }
+    [API skinButton: self.buttonAuth];
+    [API skinButton: self.buttonScan];
     
 }
 
