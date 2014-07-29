@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SettingsViewController.h"
+//#import "SettingsViewController.h"
 
 @protocol barCodeScanedDelegate;
-@interface ScannerViewController : UIViewController<UIAlertViewDelegate, SettingsDelegate>
+@interface ScannerViewController : UIViewController<UIAlertViewDelegate>
 @property (strong, nonatomic) NSMutableArray * allowedBarcodeTypes;
 
 @property(assign,nonatomic) id<barCodeScanedDelegate> delegate;

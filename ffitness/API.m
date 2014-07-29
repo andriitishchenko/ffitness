@@ -14,6 +14,8 @@
 
 #define  BOUNDARY @"AaB03x"
 
+#import "TFHpple.h"
+
 
 
 @interface API()<NSURLConnectionDelegate, NSURLSessionDelegate>
@@ -127,6 +129,36 @@
 }
 
 
+-(NSMutableDictionary*)parceHTML:(NSData*)dataHTML
+{
+    NSMutableDictionary *datasource= nil;
+    TFHpple * doc       = [[TFHpple alloc] initWithHTMLData:dataHTML];
+    NSArray * tds  = [doc searchWithXPathQuery: @"//table[@class='block']/tr/td[position() mod 2 = 0]"];
+
+    if (tds) {
+        datasource = [NSMutableDictionary new];
+    }
+    
+    for (NSInteger i=0;i<[tds count];i++) {
+        TFHppleElement * e = [tds objectAtIndex:i];
+        NSString*value  =  [e text];
+        if (i == 0) { //fio
+            [datasource setObject:value forKey:KEY_FIO];
+        }
+        else if (i == 1) { //expire date
+            [datasource setObject:value forKey:KEY_EXPIRE];
+        }
+        else if (i == 2) { //training count
+            [datasource setObject:value forKey:KEY_BALANCE];
+        }
+        else if (i == 3) { //money balance
+            [datasource setObject:value forKey:KEY_MONEY];
+        }
+    }
+    return datasource;
+}
+
+
 -(void)userLogIn:(NSDictionary*)params Complete:(void (^)(id response, NSError* error))completion
 {
     //card=ss&day=1&month=1&year=1986
@@ -138,16 +170,54 @@
 //                         
 //                         };
     
-    [API requestAsyncWith:@"key2gym/login" method:RequestMethodPost params:params completion:^(id response, NSError *error) {
+    [API authWithParams:params completion:^(id response, NSError *error) {
         if (response && !error) {
-
+            NSMutableDictionary*rez = [self parceHTML:(NSData*)response];
+            if (completion) {
+                completion(rez, error);
+            }
         }
+        else if (completion) {
+            completion(nil, error);
+        }
+    }];
+    
+//    [API requestAsyncWith:@"key2gym/login" method:RequestMethodPost params:params completion:^(id response, NSError *error) {
+//        if (response && !error) {
+//            NSMutableDictionary*rez = [self parceHTML:(NSData*)response];
+//            if (completion) {
+//                completion(rez, error);
+//            }
+//        }
+//        else if (completion) {
+//            completion(nil, error);
+//        }
+//    }];
+}
+
+-(void)getUpdatesOnComplete:(void (^)(id response, NSError* error))completion
+{
+    [API requestAsyncWith:@"key2gym" method:RequestMethodGet params:nil completion:^(id response, NSError *error) {
+        if (response && !error) {
+            NSMutableDictionary*rez = [self parceHTML:(NSData*)response];
+            if (completion) {
+                completion(rez, error);
+            }
+        }
+        else if (completion) {
+            completion(nil, error);
+        }
+    }];
+}
+
+-(void)logOutOnComplete:(void (^)(id response, NSError* error))completion
+{
+    [API requestAsyncWith:@"logout" method:RequestMethodPost params:nil completion:^(id response, NSError *error) {
         if (completion) {
             completion(response, error);
         }
     }];
 }
-
 
 //+ (NSCachedURLResponse *)connection:(NSURLConnection *)connection
 //                  willCacheResponse:(NSCachedURLResponse *)cachedResponse
@@ -212,7 +282,21 @@
     
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *session_error) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
+        NSString*absUrl = [httpResponse.URL.absoluteString lastPathComponent];
         
+        if ([absUrl isContainSubstring:@"login"]) { //302 redirect
+            NSMutableDictionary*postCred  = [API getSuccessCredentials];
+            if (postCred) {
+            ALog(@"request login and return");
+               [API authWithParams:postCred completion:^(id response, NSError *error) {
+                   if (completion) {
+                       completion(response, error);
+                   }
+               }];
+                return;
+            }
+        }
+
         
         ALog(@"RESULT %ld %@\n",(long)[httpResponse statusCode],[NSHTTPURLResponse localizedStringForStatusCode:httpResponse.statusCode]);
         
@@ -230,6 +314,53 @@
     
     [task resume];
 }
+
+
+
++(void)authWithParams:(NSDictionary*)params completion:(void (^)(id response, NSError* error))completion
+{
+    NSString*method_call = [baseurl stringByAppendingString:@"key2gym/login"];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration: [[API sharedInstance] sessionConfig] delegate: [API sharedInstance] delegateQueue: [NSOperationQueue currentQueue]];
+
+    NSURL*url_path = [method_call toURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url_path];
+    [request setTimeoutInterval:15];
+    [request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
+    [request setHTTPShouldHandleCookies:YES];
+    [request setHTTPMethod:@"POST"];
+    
+    NSString*params_serialized = [[params queryString] substringFromIndex:1];//remove "?"
+    NSData *body = [params_serialized dataUsingEncoding:NSUTF8StringEncoding];
+    [request setHTTPBody:body];
+
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *session_error) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
+        NSString*absUrl = [httpResponse.URL.absoluteString lastPathComponent];
+        NSData*rdata = data;
+        NSError*error = session_error;
+        if ([absUrl isEqualToString:@"key2gym"]) {//logedin successfuly
+            [[NSUserDefaults standardUserDefaults] setObject:params forKey:PAYLOADS];
+        }
+        else
+        {
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:PAYLOADS];
+            rdata = nil;
+            error = [[NSError alloc] initWithDomain:@"login.failed" code:401 userInfo:nil];
+        }
+        
+        if (completion) {
+            completion(rdata, error);
+        }
+        
+    }];
+    
+    [task resume];
+}
+
+
+
 //
 //-(void)URLSession:(NSURLSession *)session
 //     downloadTask:(NSURLSessionDownloadTask *)downloadTask
@@ -248,5 +379,8 @@
 //    NSLog(@"%f / %f", (double)totalBytesWritten,(double)totalBytesExpectedToWrite);
 //}
 
++(NSMutableDictionary*)getSuccessCredentials{
+    return (NSMutableDictionary*)[[[NSUserDefaults standardUserDefaults] objectForKey:PAYLOADS] mutableCopy];
+}
 
 @end

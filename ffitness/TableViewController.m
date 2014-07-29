@@ -43,7 +43,12 @@
 
 
 -(IBAction)refresh:(id)sender{
-    
+    [[API sharedInstance] getUpdatesOnComplete:^(id response, NSError *error) {
+        if (response && !error) {
+            self.datasource = (NSMutableDictionary*)response;
+            [self.tableView reloadDataInMainThread];
+        }
+    }];
 }
 
 
@@ -79,23 +84,23 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:CellIdentifier];
     }
-    
-    NSArray*keys = [self.datasource allKeys];
-    NSString*key = keys[indexPath.row];
-    
+    NSString*key = nil;
+    if (indexPath.row == 0) {
+        cell.textLabel.text = NSLocalizedString(@"Name",@"Name");
+        key = KEY_FIO;
+    }else if (indexPath.row == 1) {
+        cell.textLabel.text = NSLocalizedString(@"Expire",@"Expire");
+        key = KEY_EXPIRE;
+    }else if (indexPath.row == 2) {
+        cell.textLabel.text = NSLocalizedString(@"Remaining visits",@"Remaining visits");
+        key = KEY_BALANCE;
+    }else if (indexPath.row == 3) {
+        cell.textLabel.text = NSLocalizedString(@"Balance $",@"Balance $");
+        key = KEY_MONEY;
+    }
+
     cell.detailTextLabel.text = [self.datasource objectForKey:key];
     
-    if ([key isEqualToString:KEY_FIO]) {
-        cell.textLabel.text = NSLocalizedString(@"Name",@"Name");
-    }else if ([key isEqualToString:KEY_EXPIRE]) {
-        cell.textLabel.text = NSLocalizedString(@"Expire",@"Expire");
-    }
-    else if ([key isEqualToString:KEY_BALANCE]) {
-        cell.textLabel.text = NSLocalizedString(@"Membership",@"Membership");
-    }
-    else if ([key isEqualToString:KEY_MONEY]) {
-        cell.textLabel.text = NSLocalizedString(@"Balance $",@"Balance $");
-    }
     return cell;
 }
 

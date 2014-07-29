@@ -20,4 +20,8 @@ typedef NS_ENUM(NSUInteger, RequestMethod) {
 + (API *)sharedInstance ;
 +(void)requestAsyncWith:(NSString*)action method:(RequestMethod)method params:(NSDictionary*)params completion:(void (^)(id response, NSError* error))completion;
 + (void)clearCookiesForURL:(NSURL*)url;
+-(void)getUpdatesOnComplete:(void (^)(id response, NSError* error))completion;
++(void)authWithParams:(NSDictionary*)params completion:(void (^)(id response, NSError* error))completion;
+
++(NSMutableDictionary*)getSuccessCredentials;
 @end

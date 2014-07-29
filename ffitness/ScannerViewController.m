@@ -65,16 +65,16 @@
     
     // set default allowed barcode types, remove types via setings menu if you don't want them to be able to be scanned
     self.allowedBarcodeTypes = [NSMutableArray new];
-    [self.allowedBarcodeTypes addObject:@"org.iso.QRCode"];
-    [self.allowedBarcodeTypes addObject:@"org.iso.PDF417"];
-    [self.allowedBarcodeTypes addObject:@"org.gs1.UPC-E"];
-    [self.allowedBarcodeTypes addObject:@"org.iso.Aztec"];
-    [self.allowedBarcodeTypes addObject:@"org.iso.Code39"];
-    [self.allowedBarcodeTypes addObject:@"org.iso.Code39Mod43"];
-    [self.allowedBarcodeTypes addObject:@"org.gs1.EAN-13"];
+//    [self.allowedBarcodeTypes addObject:@"org.iso.QRCode"];
+//    [self.allowedBarcodeTypes addObject:@"org.iso.PDF417"];
+//    [self.allowedBarcodeTypes addObject:@"org.gs1.UPC-E"];
+//    [self.allowedBarcodeTypes addObject:@"org.iso.Aztec"];
+//    [self.allowedBarcodeTypes addObject:@"org.iso.Code39"];
+//    [self.allowedBarcodeTypes addObject:@"org.iso.Code39Mod43"];
+//    [self.allowedBarcodeTypes addObject:@"org.gs1.EAN-13"];
     [self.allowedBarcodeTypes addObject:@"org.gs1.EAN-8"];
-    [self.allowedBarcodeTypes addObject:@"com.intermec.Code93"];
-    [self.allowedBarcodeTypes addObject:@"org.iso.Code128"];
+//    [self.allowedBarcodeTypes addObject:@"com.intermec.Code93"];
+//    [self.allowedBarcodeTypes addObject:@"org.iso.Code128"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -157,14 +157,15 @@
 - (IBAction)settingsButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"toSettings" sender:self];
 }
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"toSettings"]) {
-        self.settingsVC = (SettingsViewController *)[self.storyboard instantiateViewControllerWithIdentifier: @"SettingsViewController"];
-        self.settingsVC = segue.destinationViewController;
-        self.settingsVC.delegate = self;
-    }
-}
+//
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([[segue identifier] isEqualToString:@"toSettings"]) {
+//        self.settingsVC = (SettingsViewController *)[self.storyboard instantiateViewControllerWithIdentifier: @"SettingsViewController"];
+//        self.settingsVC = segue.destinationViewController;
+////        self.settingsVC.delegate = self;
+//    }
+//}
 
 
 #pragma mark - Delegate functions

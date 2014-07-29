@@ -7,11 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "TFHpple.h"
 #import "ScannerViewController.h"
 #import "TableViewController.h"
+#import <ALAlertBanner/ALAlertBanner.h>
 
-#define PAYLOADS @"payloads_key"
 
 @interface ViewController ()<barCodeScanedDelegate>
 @property(strong,nonatomic) NSMutableDictionary* datasource;
@@ -27,7 +26,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.title = NSLocalizedString(@"Fort-Fitness", @"Fort-Fitness");
     [self observeKeyboard];
-    self.postCredentials = [[[NSUserDefaults standardUserDefaults] objectForKey:PAYLOADS] mutableCopy];
+    self.postCredentials = [API getSuccessCredentials];
+    //[[[NSUserDefaults standardUserDefaults] objectForKey:PAYLOADS] mutableCopy];
     if (!self.postCredentials) {
         self.postCredentials = [NSMutableDictionary new];
     }
@@ -139,52 +139,56 @@
     [self.postCredentials setObject:[NSString withInteger: day] forKey:@"day"];
 }
 
+-(void)failMessage{
+    if(![NSThread isMainThread])
+    {
+        [self performSelectorOnMainThread:@selector(failMessage) withObject:nil waitUntilDone:NO];
+        return;
+    }
+    ALAlertBanner *banner = [ALAlertBanner alertBannerForView:self.view
+                                                        style:ALAlertBannerStyleFailure
+                                                     position:ALAlertBannerPositionTop
+                                                        title:NSLocalizedString(@"Fail", @"Fail")
+                                                     subtitle:NSLocalizedString(@"Code or birthday incorrect", @"Code or birthday incorrect")];
+    [banner show];
+
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.textFieldCard) {
+        [textField resignFirstResponder];
+        [self buttonAuth_click:nil];
+        return NO;
+    }
+    return YES;
+}
+
 - (IBAction)buttonAuth_click:(id)sender {
     [self getSelection];
+    if ([self.textFieldCard.text length]==0) {
+        return;
+    }
     [self.postCredentials setObject:[self.textFieldCard.text copy] forKey:@"card"];
-    
+
     [[API sharedInstance] userLogIn:self.postCredentials Complete:^(id response, NSError *error) {
         if (!error && response) {
-            self.datasource = [NSMutableDictionary new];
-            
-            TFHpple * doc       = [[TFHpple alloc] initWithHTMLData:(NSData*)response];
-            NSArray * tds  = [doc searchWithXPathQuery: @"//table[@class='block']/tr/td[position() mod 2 = 0]"];
-            
-            for (NSInteger i=0;i<[tds count];i++) {
-                TFHppleElement * e = [tds objectAtIndex:i];
-                NSString*value  =  [e text];
-                if (i == 0) { //fio
-                    [self.datasource setObject:value forKey:KEY_FIO];
-                }
-                else if (i == 1) { //expire date
-                    [self.datasource setObject:value forKey:KEY_EXPIRE];
-                }
-                else if (i == 2) { //training count
-                    [self.datasource setObject:value forKey:KEY_BALANCE];
-                }
-                else if (i == 3) { //money balance
-                    [self.datasource setObject:value forKey:KEY_MONEY];
-                }
-            }
+            self.datasource = (NSMutableDictionary*)response;
             
             if ([self.datasource count] == 4){
-                
                 [[NSUserDefaults standardUserDefaults] setObject:self.postCredentials forKey:PAYLOADS];
-                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self performSegueWithIdentifier:@"viewDetails" sender:sender];
                 });
             }
-            else
-            {
-                [[NSUserDefaults standardUserDefaults] setObject:nil forKey:PAYLOADS];
-            }
-            
-            
+        }
+        else
+        {
+            ALog(@"Login err %@",[error domain]);
+            [self failMessage];
         }
 
     }];
-     
+    
 
     
 }

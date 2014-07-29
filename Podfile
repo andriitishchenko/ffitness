@@ -6,4 +6,5 @@ target "ffitness" do
     pod 'dyci', :git => 'https://github.com/DyCI/dyci-main.git'
     pod 'NSTypeExtended', :git => 'https://github.com/andriitishchenko/nstypeextended.git'
     pod 'Hpple', :git =>'https://github.com/topfunky/hpple.git'
+    pod 'ALAlertBanner', '~> 0.3.1'
 end

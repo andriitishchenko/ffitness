@@ -27,6 +27,28 @@
     [[UINavigationBar appearance] setBarTintColor: colorNavigationBarBackground];
     [[UIToolbar appearance ] setTintColor:colorNavigationBarBackground];
     
+    
+//    [[API sharedInstance] getUpdatesOnComplete:^(id response, NSError *error) {
+//        if (response && !error) {
+//        }
+//    }];
+//    NSDictionary*auth =@{
+//                         @"card":@"14010255",
+//                         @"day":@"5",
+//                         @"month":@"9",
+//                         @"year":@"1986",
+//
+//                         };
+//    [[API sharedInstance] userLogIn:auth Complete:^(id response, NSError *error) {
+//        NSLog(@"1");
+//    }];
+    
+     
+     
+//     :auth completion:^(id response, NSError *error) {
+//        NSLog(@"1");
+//    }];
+    
     return YES;
 }
 							
