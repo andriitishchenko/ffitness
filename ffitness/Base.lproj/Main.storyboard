@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="JDM-N7-tek">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="JDM-N7-tek">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -145,15 +145,30 @@
                                     <action selector="swichChanged:" destination="UrE-tw-cSa" eventType="valueChanged" id="RSf-h7-LDk"/>
                                 </connections>
                             </switch>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npv-Gy-eeK">
+                                <rect key="frame" x="100" y="220" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="eUn-Rg-7lR"/>
+                                </constraints>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="button_logout_click:" destination="UrE-tw-cSa" eventType="touchUpInside" id="t0t-to-9wr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HD8-r0-nxY" firstAttribute="leading" secondItem="XMM-0J-TaA" secondAttribute="leading" constant="20" id="2sf-xo-P62"/>
+                            <constraint firstAttribute="centerX" secondItem="npv-Gy-eeK" secondAttribute="centerX" id="9b5-Wi-2Tr"/>
                             <constraint firstItem="HD8-r0-nxY" firstAttribute="centerY" secondItem="f10-CW-yhN" secondAttribute="centerY" id="Byt-iJ-t6E"/>
                             <constraint firstItem="f10-CW-yhN" firstAttribute="top" secondItem="UsS-uQ-dMi" secondAttribute="bottom" constant="70" id="Lz4-th-92V"/>
                             <constraint firstItem="uJm-V5-G7m" firstAttribute="centerY" secondItem="RaD-Bo-t86" secondAttribute="centerY" id="OfY-4h-bze"/>
                             <constraint firstAttribute="trailing" secondItem="uJm-V5-G7m" secondAttribute="trailing" constant="20" id="TZM-AG-1r2"/>
                             <constraint firstItem="f10-CW-yhN" firstAttribute="leading" secondItem="HD8-r0-nxY" secondAttribute="trailing" constant="10" id="Z56-CT-WLP"/>
+                            <constraint firstItem="npv-Gy-eeK" firstAttribute="top" secondItem="RaD-Bo-t86" secondAttribute="bottom" constant="21" id="i4l-wV-CUY"/>
                             <constraint firstItem="uJm-V5-G7m" firstAttribute="top" secondItem="f10-CW-yhN" secondAttribute="bottom" constant="8" id="lgA-WB-Tfm"/>
                             <constraint firstAttribute="trailing" secondItem="f10-CW-yhN" secondAttribute="trailing" constant="20" id="pub-5U-2ih"/>
                             <constraint firstItem="RaD-Bo-t86" firstAttribute="leading" secondItem="XMM-0J-TaA" secondAttribute="leading" constant="20" id="uSe-KH-kct"/>

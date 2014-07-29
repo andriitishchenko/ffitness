@@ -195,11 +195,25 @@
 //    }];
 }
 
+-(void)informIfUpdatenewDict:(NSMutableDictionary*)newD
+{
+    NSMutableDictionary*oldD = [[[NSUserDefaults standardUserDefaults] objectForKey:BACKGROUND_DATA_KEY] mutableCopy];
+    
+    if (oldD && newD) {
+        if ([oldD isEqualToDictionary:newD]) {
+            [[NSUserDefaults standardUserDefaults] setObject:newD forKey:BACKGROUND_DATA_KEY];
+            AppDelegate*ap = ApplicationDelegate;
+            [ap addNottification];
+        }
+    }
+}
+
 -(void)getUpdatesOnComplete:(void (^)(id response, NSError* error))completion
 {
     [API requestAsyncWith:@"key2gym" method:RequestMethodGet params:nil completion:^(id response, NSError *error) {
         if (response && !error) {
             NSMutableDictionary*rez = [self parceHTML:(NSData*)response];
+            [self informIfUpdatenewDict:rez];
             if (completion) {
                 completion(rez, error);
             }
@@ -212,9 +226,11 @@
 
 -(void)logOutOnComplete:(void (^)(id response, NSError* error))completion
 {
-    [API requestAsyncWith:@"logout" method:RequestMethodPost params:nil completion:^(id response, NSError *error) {
+    [API requestAsyncWith:@"key2gym/logout" method:RequestMethodPost params:nil completion:^(id response, NSError *error) {
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:PAYLOADS];
         if (completion) {
             completion(response, error);
+            
         }
     }];
 }

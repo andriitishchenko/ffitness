@@ -39,6 +39,8 @@
 
     self.navigationItem.rightBarButtonItem = btnSetting;
     
+//    NSMutableDictionary*oldD = [[[NSUserDefaults standardUserDefaults] objectForKey:BACKGROUND_DATA_KEY] mutableCopy];
+    
 }
 
 
@@ -46,6 +48,8 @@
     [[API sharedInstance] getUpdatesOnComplete:^(id response, NSError *error) {
         if (response && !error) {
             self.datasource = (NSMutableDictionary*)response;
+            
+            
             [self.tableView reloadDataInMainThread];
         }
     }];

@@ -13,8 +13,11 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+    #import "AppDelegate.h"
     #import "macro.h"
     #import <NSTypeExtended/NSTypeExtended.h>
+
     #import "API.h"
 
 #define KEY_FIO @"fio"
@@ -27,6 +30,7 @@
 #define KEY_CONFIG_NOTIFY @"key_config_notify"
 
 #define PAYLOADS @"payloads_key"
+#define BACKGROUND_DATA_KEY @"bg_data_key"
 #endif
 
 

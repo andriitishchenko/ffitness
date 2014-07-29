@@ -26,22 +26,42 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIButton* buttonbk = [UIButton buttonWithType:UIButtonTypeCustom];
+    [buttonbk setTitle:@"<" forState:UIControlStateNormal];
+    [buttonbk setContentEdgeInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+    buttonbk.titleLabel.transform = CGAffineTransformMakeScale(1,2);
+    [buttonbk sizeToFit];
+    
+    [buttonbk setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [buttonbk addTarget:self action:@selector(leftItem_click:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem*leftItem = [[UIBarButtonItem alloc] initWithCustomView:buttonbk ];
+    //    [leftItem setTarget:self];
+    //    [leftItem setAction:@selector(leftItem_click:)];
+    
+    //                                WithTitle:@"<" style:UIBarButtonItemStylePlain target:self action:@selector(leftItem_click:)];
+    
+    //    [[self navigationItem] setBackBarButtonItem:leftItem];
+    [[self navigationItem] setLeftBarButtonItem:leftItem];
+    
+    
+    
         self.navigationItem.title = NSLocalizedString(@"Settings", @"Settings");
     
     self.labelAddNotifications.text  = NSLocalizedString(@"Notify on expire", @"Notify on expire");
     self.labelUpdateAutomaticaly.text  = NSLocalizedString(@"Update automatically", @"Update automatically");
     
     self.datasource = [[[NSUserDefaults standardUserDefaults] objectForKey:KEY_CONFIG] mutableCopy];
-    if (!self.datasource) {
-        self.datasource = [NSMutableDictionary new];
-        [self.datasource setObject:@(NO) forKey: KEY_CONFIG_AUTOUPDATE];
-        [self.datasource setObject:@(NO) forKey: KEY_CONFIG_NOTIFY];
-    }
-    
-    
     self.switchNotifications.on = [[self.datasource objectForKey:KEY_CONFIG_NOTIFY] boolValue];
     self.switchUpdateAutomaticaly.on = [[self.datasource objectForKey:KEY_CONFIG_AUTOUPDATE] boolValue];
 
+}
+
+
+-(IBAction)leftItem_click:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,14 +73,25 @@
 
 - (IBAction)swichChanged:(id)sender {
     UISwitch *swt = (UISwitch *)sender;
+    AppDelegate*ap = ApplicationDelegate;
+    
     if (swt.tag == 100) {
         [self.datasource setObject:@(swt.isOn) forKey: KEY_CONFIG_NOTIFY];
     }
     else
     {
-         [self.datasource setObject:@(swt.isOn) forKey: KEY_CONFIG_AUTOUPDATE];
+        [self.datasource setObject:@(swt.isOn) forKey: KEY_CONFIG_AUTOUPDATE];
+        [ap setBGStatus:swt.isOn];
     }
     
     [[NSUserDefaults standardUserDefaults] setObject:self.datasource forKey:KEY_CONFIG];
+}
+
+- (IBAction)button_logout_click:(id)sender {
+    [[API sharedInstance] logOutOnComplete:^(id response, NSError *error) {
+       
+    }];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
 }
 @end

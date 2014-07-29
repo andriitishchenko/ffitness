@@ -22,6 +22,7 @@ typedef NS_ENUM(NSUInteger, RequestMethod) {
 + (void)clearCookiesForURL:(NSURL*)url;
 -(void)getUpdatesOnComplete:(void (^)(id response, NSError* error))completion;
 +(void)authWithParams:(NSDictionary*)params completion:(void (^)(id response, NSError* error))completion;
+-(void)logOutOnComplete:(void (^)(id response, NSError* error))completion;
 
 +(NSMutableDictionary*)getSuccessCredentials;
 @end

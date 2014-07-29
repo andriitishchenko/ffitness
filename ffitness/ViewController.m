@@ -45,6 +45,16 @@
         [components setYear:[year intValue]];
         NSDate *_date = [calendar dateFromComponents:components];
         [self.datePicker setDate:_date];
+        
+        [[API sharedInstance] getUpdatesOnComplete:^(id response, NSError *error) {
+            if (response && !error) {
+                self.datasource = (NSMutableDictionary*)response;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self performSegueWithIdentifier:@"viewDetails" sender:self.view];
+                });
+
+            }
+        }];
     }
     
 }
@@ -175,6 +185,7 @@
             self.datasource = (NSMutableDictionary*)response;
             
             if ([self.datasource count] == 4){
+                [[NSUserDefaults standardUserDefaults] setObject:self.datasource forKey:BACKGROUND_DATA_KEY];
                 [[NSUserDefaults standardUserDefaults] setObject:self.postCredentials forKey:PAYLOADS];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self performSegueWithIdentifier:@"viewDetails" sender:sender];
