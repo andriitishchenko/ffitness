@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A3AA45719879F2A00AE3551 /* logo_font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A3AA45619879F2A00AE3551 /* logo_font.ttf */; };
 		4A3F753C1986E1C800DDA3B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3F753B1986E1C800DDA3B1 /* Foundation.framework */; };
 		4A3F753E1986E1C800DDA3B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3F753D1986E1C800DDA3B1 /* CoreGraphics.framework */; };
 		4A3F75401986E1C800DDA3B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3F753F1986E1C800DDA3B1 /* UIKit.framework */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		01BD73191BC0448AA6CD9C24 /* libPods-ffitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ffitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A3AA45619879F2A00AE3551 /* logo_font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo_font.ttf; sourceTree = "<group>"; };
 		4A3F75381986E1C800DDA3B1 /* ffitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ffitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3F753B1986E1C800DDA3B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4A3F753D1986E1C800DDA3B1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -146,23 +148,23 @@
 		4A3F75411986E1C800DDA3B1 /* ffitness */ = {
 			isa = PBXGroup;
 			children = (
+				4A3F75701986E45200DDA3B1 /* API.h */,
+				4A3F75711986E45200DDA3B1 /* API.m */,
+				4A3F754A1986E1C800DDA3B1 /* AppDelegate.h */,
+				4A3F754B1986E1C800DDA3B1 /* AppDelegate.m */,
+				4A3F75531986E1C800DDA3B1 /* Images.xcassets */,
+				4A4B554A1986E91A0071B182 /* macro.h */,
+				4A3F754D1986E1C800DDA3B1 /* Main.storyboard */,
 				4A4B555319870BE80071B182 /* Model */,
 				4A4B554D19870BDF0071B182 /* ScannerViewController.h */,
 				4A4B554E19870BDF0071B182 /* ScannerViewController.m */,
 				4A4B554F19870BDF0071B182 /* SettingsViewController.h */,
 				4A4B555019870BDF0071B182 /* SettingsViewController.m */,
-				4A4B554A1986E91A0071B182 /* macro.h */,
-				4A3F75701986E45200DDA3B1 /* API.h */,
-				4A3F75711986E45200DDA3B1 /* API.m */,
-				4A3F754A1986E1C800DDA3B1 /* AppDelegate.h */,
-				4A3F754B1986E1C800DDA3B1 /* AppDelegate.m */,
-				4A3F754D1986E1C800DDA3B1 /* Main.storyboard */,
-				4A3F75501986E1C800DDA3B1 /* ViewController.h */,
-				4A3F75511986E1C800DDA3B1 /* ViewController.m */,
-				4A3F75531986E1C800DDA3B1 /* Images.xcassets */,
 				4A3F75421986E1C800DDA3B1 /* Supporting Files */,
 				4A4B555B198716FD0071B182 /* TableViewController.h */,
 				4A4B555C198716FD0071B182 /* TableViewController.m */,
+				4A3F75501986E1C800DDA3B1 /* ViewController.h */,
+				4A3F75511986E1C800DDA3B1 /* ViewController.m */,
 			);
 			path = ffitness;
 			sourceTree = "<group>";
@@ -170,6 +172,7 @@
 		4A3F75421986E1C800DDA3B1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4A3AA45619879F2A00AE3551 /* logo_font.ttf */,
 				4A3F75431986E1C800DDA3B1 /* ffitness-Info.plist */,
 				4A3F75441986E1C800DDA3B1 /* InfoPlist.strings */,
 				4A3F75471986E1C800DDA3B1 /* main.m */,
@@ -286,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A3AA45719879F2A00AE3551 /* logo_font.ttf in Resources */,
 				4A3F75541986E1C800DDA3B1 /* Images.xcassets in Resources */,
 				4A3F75461986E1C800DDA3B1 /* InfoPlist.strings in Resources */,
 				4A3F754F1986E1C800DDA3B1 /* Main.storyboard in Resources */,

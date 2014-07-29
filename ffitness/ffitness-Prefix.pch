@@ -16,4 +16,16 @@
     #import "macro.h"
     #import <NSTypeExtended/NSTypeExtended.h>
     #import "API.h"
+
+#define KEY_FIO @"fio"
+#define KEY_EXPIRE @"expire"
+#define KEY_BALANCE @"balance"
+#define KEY_MONEY @"money"
+#endif
+
+
+#ifndef __appcollorsdefile
+#define __appcollorsdefile
+    #define colorLabelTitle RGB(171, 108, 79)
+    #define colorNavigationBarBackground RGB(55, 85, 111)
 #endif

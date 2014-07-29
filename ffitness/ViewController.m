@@ -11,6 +11,8 @@
 #import "ScannerViewController.h"
 #import "TableViewController.h"
 
+#define PAYLOADS @"payloads_key"
+
 @interface ViewController ()<barCodeScanedDelegate>
 @property(strong,nonatomic) NSMutableDictionary* datasource;
 @property(strong,nonatomic) NSMutableDictionary* postCredentials;
@@ -23,11 +25,28 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+    self.navigationItem.title = NSLocalizedString(@"Fort-Fitness", @"Fort-Fitness");
     [self observeKeyboard];
-
-    self.postCredentials = [NSMutableDictionary new];
-
+    self.postCredentials = [[[NSUserDefaults standardUserDefaults] objectForKey:PAYLOADS] mutableCopy];
+    if (!self.postCredentials) {
+        self.postCredentials = [NSMutableDictionary new];
+    }
+    else
+    {
+        self.textFieldCard.text = [self.postCredentials objectForKey:@"card"];
+        
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSDateComponents *components = [[NSDateComponents alloc] init];
+        NSString *day = [self.postCredentials valueForKey:@"day"];
+        NSString *month = [self.postCredentials valueForKey:@"month"];
+        NSString *year = [self.postCredentials valueForKey:@"year"];
+        [components setDay:[day intValue]];
+        [components setMonth:[month intValue]];
+        [components setYear:[year intValue]];
+        NSDate *_date = [calendar dateFromComponents:components];
+        [self.datePicker setDate:_date];
+    }
+    
 }
 
 
@@ -91,7 +110,7 @@
         vc.delegate = self;
     }
     else if ([segue.identifier isEqualToString:@"viewDetails"]) {
-            TableViewController *vc = segue.destinationViewController;
+            TableViewController *vc = (TableViewController*)segue.destinationViewController;
             vc.datasource = self.datasource;
         }
 }
@@ -131,28 +150,34 @@
             TFHpple * doc       = [[TFHpple alloc] initWithHTMLData:(NSData*)response];
             NSArray * tds  = [doc searchWithXPathQuery: @"//table[@class='block']/tr/td[position() mod 2 = 0]"];
             
-            for (NSInteger i;i<[tds count];i++) {
+            for (NSInteger i=0;i<[tds count];i++) {
                 TFHppleElement * e = [tds objectAtIndex:i];
                 NSString*value  =  [e text];
                 if (i == 0) { //fio
-                    [self.datasource setObject:value forKey:@"fio"];
+                    [self.datasource setObject:value forKey:KEY_FIO];
                 }
                 else if (i == 1) { //expire date
-                    [self.datasource setObject:value forKey:@"expire"];
+                    [self.datasource setObject:value forKey:KEY_EXPIRE];
                 }
                 else if (i == 2) { //training count
-                    [self.datasource setObject:value forKey:@"balance"];
+                    [self.datasource setObject:value forKey:KEY_BALANCE];
                 }
                 else if (i == 3) { //money balance
-                    [self.datasource setObject:value forKey:@"money"];
+                    [self.datasource setObject:value forKey:KEY_MONEY];
                 }
-                
             }
             
             if ([self.datasource count] == 4){
+                
+                [[NSUserDefaults standardUserDefaults] setObject:self.postCredentials forKey:PAYLOADS];
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self performSegueWithIdentifier:@"viewDetails" sender:sender];
                 });
+            }
+            else
+            {
+                [[NSUserDefaults standardUserDefaults] setObject:nil forKey:PAYLOADS];
             }
             
             
