@@ -9,13 +9,7 @@
 #import "SettingsViewController.h"
 
 @interface SettingsViewController ()
-
-@property (weak, nonatomic) IBOutlet UIButton *saveButton;
-@property (strong, nonatomic) NSMutableArray * barcodeTypes;
-@property (strong, nonatomic) NSMutableArray * allowedBarcodeTypes;
-
-@property (strong, nonatomic) IBOutletCollection(UISwitch) NSArray *barcodeSwitches;
-
+@property (strong,nonatomic) NSMutableDictionary*datasource;
 @end
 
 @implementation SettingsViewController
@@ -32,23 +26,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    self.saveButton.layer.cornerRadius = 8.0f;
-    self.saveButton.layer.borderColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor;
-    self.saveButton.layer.borderWidth=1.5f;
+        self.navigationItem.title = NSLocalizedString(@"Settings", @"Settings");
     
-    // Save the barcode types for later
-    self.barcodeTypes = [NSMutableArray new];
-//    [self.barcodeTypes addObject:@"org.iso.QRCode"];
-//    [self.barcodeTypes addObject:@"org.iso.PDF417"];
-//    [self.barcodeTypes addObject:@"org.gs1.UPC-E"];
-//    [self.barcodeTypes addObject:@"org.iso.Aztec"];
-//    [self.barcodeTypes addObject:@"org.iso.Code39"];
-//    [self.barcodeTypes addObject:@"org.iso.Code39Mod43"];
-//    [self.barcodeTypes addObject:@"org.gs1.EAN-13"];
-    [self.barcodeTypes addObject:@"org.gs1.EAN-8"];
-//    [self.barcodeTypes addObject:@"com.intermec.Code93"];
-//    [self.barcodeTypes addObject:@"org.iso.Code128"];
+    self.labelAddNotifications.text  = NSLocalizedString(@"Notify on expire", @"Notify on expire");
+    self.labelUpdateAutomaticaly.text  = NSLocalizedString(@"Update automatically", @"Update automatically");
+    
+    self.datasource = [[[NSUserDefaults standardUserDefaults] objectForKey:KEY_CONFIG] mutableCopy];
+    if (!self.datasource) {
+        self.datasource = [NSMutableDictionary new];
+        [self.datasource setObject:@(NO) forKey: KEY_CONFIG_AUTOUPDATE];
+        [self.datasource setObject:@(NO) forKey: KEY_CONFIG_NOTIFY];
+    }
+    
+    
+    self.switchNotifications.on = [[self.datasource objectForKey:KEY_CONFIG_NOTIFY] boolValue];
+    self.switchUpdateAutomaticaly.on = [[self.datasource objectForKey:KEY_CONFIG_AUTOUPDATE] boolValue];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,15 +49,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)saveButtonPressed:(id)sender {
-    self.allowedBarcodeTypes = [NSMutableArray new];
-    for(UISwitch * sw in self.barcodeSwitches){
-        if(sw.isOn){
-            [self.allowedBarcodeTypes addObject:[self.barcodeTypes objectAtIndex:sw.tag]];
-        }
-    }
-    [self.delegate settingsChanged:self.allowedBarcodeTypes];
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
+
+- (IBAction)swichChanged:(id)sender {
+    UISwitch *swt = (UISwitch *)sender;
+    if (swt.tag == 100) {
+        [self.datasource setObject:@(swt.isOn) forKey: KEY_CONFIG_NOTIFY];
+    }
+    else
+    {
+         [self.datasource setObject:@(swt.isOn) forKey: KEY_CONFIG_AUTOUPDATE];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.datasource forKey:KEY_CONFIG];
+}
 @end

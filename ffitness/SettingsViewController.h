@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol SettingsDelegate <NSObject>
-@required
-- (void) settingsChanged:(NSMutableArray *)allowedTypes;
-@end
-
 @interface SettingsViewController : UIViewController
-@property (weak) id <SettingsDelegate> delegate;
+
+@property (weak, nonatomic) IBOutlet UILabel *labelAddNotifications;
+@property (weak, nonatomic) IBOutlet UILabel *labelUpdateAutomaticaly;
+
+@property (weak, nonatomic) IBOutlet UISwitch *switchNotifications;
+@property (weak, nonatomic) IBOutlet UISwitch *switchUpdateAutomaticaly;
+- (IBAction)swichChanged:(id)sender;
+
 @end

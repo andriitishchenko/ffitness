@@ -21,6 +21,10 @@
 #define KEY_EXPIRE @"expire"
 #define KEY_BALANCE @"balance"
 #define KEY_MONEY @"money"
+
+#define KEY_CONFIG @"key_config"
+#define KEY_CONFIG_AUTOUPDATE @"key_config_autoupdate"
+#define KEY_CONFIG_NOTIFY @"key_config_notify"
 #endif
 
 

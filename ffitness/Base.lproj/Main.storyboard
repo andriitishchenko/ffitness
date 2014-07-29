@@ -105,10 +105,10 @@
             </objects>
             <point key="canvasLocation" x="903" y="82"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="vZB-73-TTw">
             <objects>
-                <viewController id="UrE-tw-cSa" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="UrE-tw-cSa" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UsS-uQ-dMi"/>
                         <viewControllerLayoutGuide type="bottom" id="Dzm-lz-AQh"/>
@@ -117,32 +117,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HD8-r0-nxY">
-                                <rect key="frame" x="20" y="139" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HD8-r0-nxY">
+                                <rect key="frame" x="20" y="139" width="221" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f10-CW-yhN">
+                            <switch opaque="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f10-CW-yhN">
                                 <rect key="frame" x="251" y="134" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="swichChanged:" destination="UrE-tw-cSa" eventType="valueChanged" id="ERy-ER-atn"/>
+                                </connections>
                             </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaD-Bo-t86">
-                                <rect key="frame" x="20" y="178" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaD-Bo-t86">
+                                <rect key="frame" x="20" y="178" width="221" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uJm-V5-G7m">
+                            <switch opaque="NO" tag="200" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uJm-V5-G7m">
                                 <rect key="frame" x="251" y="173" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="swichChanged:" destination="UrE-tw-cSa" eventType="valueChanged" id="RSf-h7-LDk"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HD8-r0-nxY" firstAttribute="leading" secondItem="XMM-0J-TaA" secondAttribute="leading" constant="20" id="2sf-xo-P62"/>
+                            <constraint firstItem="HD8-r0-nxY" firstAttribute="centerY" secondItem="f10-CW-yhN" secondAttribute="centerY" id="Byt-iJ-t6E"/>
+                            <constraint firstItem="f10-CW-yhN" firstAttribute="top" secondItem="UsS-uQ-dMi" secondAttribute="bottom" constant="70" id="Lz4-th-92V"/>
+                            <constraint firstItem="uJm-V5-G7m" firstAttribute="centerY" secondItem="RaD-Bo-t86" secondAttribute="centerY" id="OfY-4h-bze"/>
+                            <constraint firstAttribute="trailing" secondItem="uJm-V5-G7m" secondAttribute="trailing" constant="20" id="TZM-AG-1r2"/>
+                            <constraint firstItem="f10-CW-yhN" firstAttribute="leading" secondItem="HD8-r0-nxY" secondAttribute="trailing" constant="10" id="Z56-CT-WLP"/>
+                            <constraint firstItem="uJm-V5-G7m" firstAttribute="top" secondItem="f10-CW-yhN" secondAttribute="bottom" constant="8" id="lgA-WB-Tfm"/>
+                            <constraint firstAttribute="trailing" secondItem="f10-CW-yhN" secondAttribute="trailing" constant="20" id="pub-5U-2ih"/>
+                            <constraint firstItem="RaD-Bo-t86" firstAttribute="leading" secondItem="XMM-0J-TaA" secondAttribute="leading" constant="20" id="uSe-KH-kct"/>
+                            <constraint firstItem="uJm-V5-G7m" firstAttribute="leading" secondItem="RaD-Bo-t86" secondAttribute="trailing" constant="10" id="wuO-uV-nMr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DJe-EI-Ijc"/>
+                    <connections>
+                        <outlet property="labelAddNotifications" destination="HD8-r0-nxY" id="4E9-kd-bN0"/>
+                        <outlet property="labelUpdateAutomaticaly" destination="RaD-Bo-t86" id="irj-mn-rSY"/>
+                        <outlet property="switchNotifications" destination="f10-CW-yhN" id="D2H-rQ-ia6"/>
+                        <outlet property="switchUpdateAutomaticaly" destination="uJm-V5-G7m" id="skC-eL-Gb6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gmj-Xr-OsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
