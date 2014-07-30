@@ -58,7 +58,7 @@
 		4A3F754B1986E1C800DDA3B1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4A3F754E1986E1C800DDA3B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A3F75501986E1C800DDA3B1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4A3F75511986E1C800DDA3B1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4A3F75511986E1C800DDA3B1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ffitness/ViewController.m; sourceTree = "<group>"; };
 		4A3F75531986E1C800DDA3B1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4A3F75591986E1C800DDA3B1 /* ffitnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ffitnessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3F755A1986E1C800DDA3B1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -114,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3F75411986E1C800DDA3B1 /* ffitness */,
+				4A3F75511986E1C800DDA3B1 /* ViewController.m */,
 				4A3F75601986E1C800DDA3B1 /* ffitnessTests */,
 				4A3F753A1986E1C800DDA3B1 /* Frameworks */,
 				4A3F75391986E1C800DDA3B1 /* Products */,
@@ -164,7 +165,6 @@
 				4A4B555B198716FD0071B182 /* TableViewController.h */,
 				4A4B555C198716FD0071B182 /* TableViewController.m */,
 				4A3F75501986E1C800DDA3B1 /* ViewController.h */,
-				4A3F75511986E1C800DDA3B1 /* ViewController.m */,
 			);
 			path = ffitness;
 			sourceTree = "<group>";
