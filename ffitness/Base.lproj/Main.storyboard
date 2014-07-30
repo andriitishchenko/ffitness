@@ -60,6 +60,47 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <view key="tableFooterView" appearanceType="aqua" contentMode="scaleToFill" id="4Fj-0m-Hfj">
+                            <rect key="frame" x="0.0" y="66" width="320" height="129"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyF-oF-Zec">
+                                    <rect key="frame" x="0.0" y="70" width="320" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="v9x-cz-d13"/>
+                                    </constraints>
+                                    <state key="normal" title="fort-fitness@mail.ru">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonEmail_click:" destination="hhQ-gT-LcP" eventType="touchUpInside" id="GMG-hD-FX1"/>
+                                    </connections>
+                                </button>
+                                <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJ8-Pt-luN">
+                                    <rect key="frame" x="0.0" y="30" width="320" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="Sng-Uq-YRc"/>
+                                    </constraints>
+                                    <state key="normal" title="(044) 361-06-11">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonCall_click:" destination="hhQ-gT-LcP" eventType="touchUpInside" id="Dqv-6N-urI"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="VJ8-Pt-luN" firstAttribute="top" secondItem="4Fj-0m-Hfj" secondAttribute="top" constant="30" id="MKb-cZ-4iY"/>
+                                <constraint firstAttribute="trailing" secondItem="zyF-oF-Zec" secondAttribute="trailing" id="Nx4-A4-QYI"/>
+                                <constraint firstAttribute="trailing" secondItem="VJ8-Pt-luN" secondAttribute="trailing" id="dG6-SK-hgw"/>
+                                <constraint firstItem="zyF-oF-Zec" firstAttribute="leading" secondItem="4Fj-0m-Hfj" secondAttribute="leading" id="eXF-df-f1x"/>
+                                <constraint firstItem="zyF-oF-Zec" firstAttribute="top" secondItem="VJ8-Pt-luN" secondAttribute="bottom" constant="10" id="f0K-li-jSO"/>
+                                <constraint firstItem="VJ8-Pt-luN" firstAttribute="leading" secondItem="4Fj-0m-Hfj" secondAttribute="leading" id="rBT-DW-JIC"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailsCell" textLabel="99u-DY-SlI" detailTextLabel="f6W-LS-yiC" style="IBUITableViewCellStyleValue1" id="M1m-kV-UIt">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>

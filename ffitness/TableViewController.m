@@ -7,8 +7,11 @@
 //
 
 #import "TableViewController.h"
+#import <MessageUI/MessageUI.h>
+#import <ALAlertBanner/ALAlertBanner.h>
 
-@interface TableViewController ()
+
+@interface TableViewController ()<MFMailComposeViewControllerDelegate>
 @property(strong,nonatomic) NSArray*keys ;
 @end
 
@@ -40,7 +43,15 @@
     self.navigationItem.rightBarButtonItem = btnSetting;
     
 //    NSMutableDictionary*oldD = [[[NSUserDefaults standardUserDefaults] objectForKey:BACKGROUND_DATA_KEY] mutableCopy];
+//    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
+}
+- (IBAction)buttonEmail_click:(id)sender {
+    [self sendEmail];
+}
+- (IBAction)buttonCall_click:(id)sender {
+    NSString *phoneNumber = [@"tel://" stringByAppendingString:SETTINGS_KEY_PHONE];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }
 
 
@@ -106,6 +117,65 @@
     cell.detailTextLabel.text = [self.datasource objectForKey:key];
     
     return cell;
+}
+
+
+-(void)sendEmail {
+    // Email Subject
+    NSString *emailTitle = @"Hello there!";
+    // Email Content
+    NSString *messageBody = @"";
+    // To address
+    NSArray *toRecipents = [NSArray arrayWithObject:SETTINGS_KEY_EMAIL];
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    [mc setMessageBody:messageBody isHTML:NO];
+    [mc setToRecipients:toRecipents];
+    
+    // Present mail view controller on screen
+    [self presentViewController:mc animated:YES completion:NULL];
+    
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    NSString*message = NSLocalizedString(@"Error", @"Error");
+    ALAlertBannerStyle style =ALAlertBannerStyleFailure ;
+    
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            message = NSLocalizedString(@"Mail cancelled", @"Mail cancelled");
+            style =ALAlertBannerStyleWarning ;
+            break;
+        case MFMailComposeResultSaved:
+            message = NSLocalizedString(@"Mail saved", @"Mail saved");
+            style =ALAlertBannerStyleNotify ;
+            break;
+        case MFMailComposeResultSent:
+            message = NSLocalizedString(@"Mail sent", @"Mail sent");
+            style =ALAlertBannerStyleSuccess ;
+            break;
+        case MFMailComposeResultFailed:
+            style =ALAlertBannerStyleFailure ;
+            message = [error localizedDescription];
+            break;
+        default:
+            style =ALAlertBannerStyleFailure ;
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    ALAlertBanner *banner = [ALAlertBanner alertBannerForView:self.view
+                                                        style:style
+                                                     position:ALAlertBannerPositionTop
+                                                        title:NSLocalizedString(@"Send email", @"Send email")
+                                                     subtitle:message];
+    [banner show];
 }
 
 @end
