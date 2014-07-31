@@ -12,9 +12,13 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *labelAddNotifications;
 @property (weak, nonatomic) IBOutlet UILabel *labelUpdateAutomaticaly;
+@property (weak, nonatomic) IBOutlet UILabel *labelAddtoCalendar;
 
 @property (weak, nonatomic) IBOutlet UISwitch *switchNotifications;
 @property (weak, nonatomic) IBOutlet UISwitch *switchUpdateAutomaticaly;
+@property (weak, nonatomic) IBOutlet UISwitch *switchAddToCalendar;
+
+
 - (IBAction)swichChanged:(id)sender;
 - (IBAction)button_logout_click:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *buttonLoguot;

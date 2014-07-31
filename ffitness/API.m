@@ -22,6 +22,8 @@
 @property (strong,nonatomic)NSURLSessionConfiguration *sessionConfig;
 @property (strong,nonatomic) dispatch_queue_t requestQueue;
 @property (strong,nonatomic) NSOperationQueue *queue;
+
+@property (strong,nonatomic)  NSDateFormatter *dateFormatter;
 @end
 
 @implementation API
@@ -54,6 +56,8 @@
         self.sessionConfig.timeoutIntervalForResource = 60.0;
         self.sessionConfig.HTTPMaximumConnectionsPerHost = 1;
         self.sessionConfig.HTTPShouldSetCookies = YES;
+        
+        self.dateFormatter = [[NSDateFormatter alloc] init];
         
 #if TARGET_OS_IPHONE
         NSString *cachePath = @"/MyCacheDirectory";
@@ -155,6 +159,8 @@
             [datasource setObject:value forKey:KEY_MONEY];
         }
     }
+    doc = nil;
+    
     return datasource;
 }
 
@@ -197,15 +203,37 @@
 
 -(void)informIfUpdatenewDict:(NSMutableDictionary*)newD
 {
-    NSMutableDictionary*oldD = [[[NSUserDefaults standardUserDefaults] objectForKey:BACKGROUND_DATA_KEY] mutableCopy];
-    
-    if (oldD && newD) {
-        if (![oldD isEqualToDictionary:newD]) {
-            [[NSUserDefaults standardUserDefaults] setObject:newD forKey:BACKGROUND_DATA_KEY];
-            AppDelegate*ap = ApplicationDelegate;
+    if (newD) {        
+        AppDelegate*ap = ApplicationDelegate;
+        if (![newD isEqualToDictionary:ap.userDictionary]) {
             [ap addNottification];
+            
+            NSString*newdate = [newD objectForKey:KEY_EXPIRE];
+            
+            if (![newdate isEqualToString:[ap.userDictionary objectForKey:KEY_EXPIRE]]) {
+                NSDate*ndate = [API stringToDate:newdate];
+                [ap setiCalEventOnDate:ndate];
+            }
+            
         }
     }
+}
+
++(NSDate*)stringToDate:(NSString*)datastring{
+    NSDateFormatter *dateFormatter = [API sharedInstance].dateFormatter;
+    NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    [dateFormatter setLocale:enUSPOSIXLocale];
+    [dateFormatter setDateFormat:@"dd.MM.yyyy"];
+    [dateFormatter setTimeZone: [NSTimeZone systemTimeZone]];
+    return [dateFormatter dateFromString:datastring];
+}
+
++(NSString*)dateToString:(NSDate*)date{
+    NSDateFormatter *dateFormatter = [API sharedInstance].dateFormatter;
+    [dateFormatter setDateFormat:@"dd.MM.yyyy"];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+    [dateFormatter setTimeZone: [NSTimeZone systemTimeZone]];
+    return [dateFormatter stringFromDate:date];;
 }
 
 -(void)getUpdatesOnComplete:(void (^)(id response, NSError* error))completion

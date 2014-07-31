@@ -55,9 +55,13 @@
     self.labelAddNotifications.text  = NSLocalizedString(@"Notify on expire", @"Notify on expire");
     self.labelUpdateAutomaticaly.text  = NSLocalizedString(@"Update automatically", @"Update automatically");
     
+    self.labelAddtoCalendar.text = NSLocalizedString(@"Create iCal events", @"Create iCal events");
+
+    
     self.datasource = [[[NSUserDefaults standardUserDefaults] objectForKey:KEY_CONFIG] mutableCopy];
     self.switchNotifications.on = [[self.datasource objectForKey:KEY_CONFIG_NOTIFY] boolValue];
     self.switchUpdateAutomaticaly.on = [[self.datasource objectForKey:KEY_CONFIG_AUTOUPDATE] boolValue];
+    self.switchAddToCalendar.on = [[self.datasource objectForKey:KEY_CONFIG_ADDTOCALENDAR] boolValue];
 
 }
 
@@ -80,11 +84,14 @@
     if (swt.tag == 100) {
         [self.datasource setObject:@(swt.isOn) forKey: KEY_CONFIG_NOTIFY];
     }
-    else
-    {
+    else if(swt.tag == 200){
         [self.datasource setObject:@(swt.isOn) forKey: KEY_CONFIG_AUTOUPDATE];
         [ap setBGStatus:swt.isOn];
     }
+    else if(swt.tag == 300) {
+        [self.datasource setObject:@(swt.isOn) forKey: KEY_CONFIG_ADDTOCALENDAR];
+    }
+
     
     [[NSUserDefaults standardUserDefaults] setObject:self.datasource forKey:KEY_CONFIG];
 }

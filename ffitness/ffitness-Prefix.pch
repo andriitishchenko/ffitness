@@ -28,6 +28,8 @@
 #define KEY_CONFIG @"key_config"
 #define KEY_CONFIG_AUTOUPDATE @"key_config_autoupdate"
 #define KEY_CONFIG_NOTIFY @"key_config_notify"
+#define KEY_CONFIG_ADDTOCALENDAR @"key_config_addtocalendar"
+#define KEY_CONFIG_OLD_EVENT @"key_config_old_event"
 
 #define PAYLOADS @"payloads_key"
 #define BACKGROUND_DATA_KEY @"bg_data_key"

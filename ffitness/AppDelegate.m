@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <EventKit/EventKit.h>
 
 @interface AppDelegate()
 @property(assign)BOOL isAppResumingFromBackground;
@@ -29,25 +30,10 @@
     }
 */
     
-    
-        NSMutableDictionary*cfg = [[[NSUserDefaults standardUserDefaults] objectForKey:KEY_CONFIG] mutableCopy];
-        if (!cfg) {
-            cfg = [NSMutableDictionary new];
-            [cfg setObject:@(YES) forKey: KEY_CONFIG_AUTOUPDATE];
-            [cfg setObject:@(YES) forKey: KEY_CONFIG_NOTIFY];
-            [[NSUserDefaults standardUserDefaults] setObject:cfg forKey:KEY_CONFIG];
-        }
-        BOOL bgstatus =[[cfg objectForKey:KEY_CONFIG_AUTOUPDATE] boolValue ];
-        [self setBGStatus:bgstatus];
-        
+    if(application.applicationState != UIApplicationStateBackground) {
+
         
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-        
-        
-        
-    
-        
-        
         
         [[UINavigationBar appearance] setTitleTextAttributes:
          [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,
@@ -57,6 +43,26 @@
         [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
         [[UINavigationBar appearance] setBarTintColor: colorNavigationBarBackground];
         [[UIToolbar appearance ] setTintColor:colorNavigationBarBackground];
+        
+    }
+
+    
+    
+        self.userDictionary = [[[NSUserDefaults standardUserDefaults] objectForKey:BACKGROUND_DATA_KEY] mutableCopy];
+    
+    
+        NSMutableDictionary*cfg = [[[NSUserDefaults standardUserDefaults] objectForKey:KEY_CONFIG] mutableCopy];
+        if (!cfg) {
+            cfg = [NSMutableDictionary new];
+            [cfg setObject:@(YES) forKey: KEY_CONFIG_AUTOUPDATE];
+            [cfg setObject:@(YES) forKey: KEY_CONFIG_NOTIFY];
+            [cfg setObject:@(YES) forKey: KEY_CONFIG_ADDTOCALENDAR];
+            [[NSUserDefaults standardUserDefaults] setObject:cfg forKey:KEY_CONFIG];
+        }
+        BOOL bgstatus =[[cfg objectForKey:KEY_CONFIG_AUTOUPDATE] boolValue ];
+        [self setBGStatus:bgstatus];
+        
+
     
 //        [[UIButton appearance ] setTintColor:[UIColor whiteColor]];
 //        [[UIButton appearance ] setBackgroundColor:colorButtonBackground];
@@ -110,6 +116,11 @@
 //        return;
 //    }
     
+    UIApplication* app = [UIApplication sharedApplication];
+    if([app applicationState] != UIApplicationStateBackground) {
+        return;
+    }
+    
     
     NSMutableDictionary*oldD = [[[NSUserDefaults standardUserDefaults] objectForKey:BACKGROUND_DATA_KEY] mutableCopy];
     if (!oldD) {
@@ -129,29 +140,29 @@
                     NSLocalizedString(@"till", @"till"),
                     exp];
     
-    //[[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    
+    NSArray*    oldNotifications = [app scheduledLocalNotifications];
+    
+    if ([oldNotifications count] > 0)
+        [app cancelAllLocalNotifications];
+    
     
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    
     localNotification.alertBody = msg;
     localNotification.alertAction = NSLocalizedString(@"View", nil);
-    
-    
-    
     localNotification.fireDate = [NSDate date];
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     
-    localNotification.applicationIconBadgeNumber = 1;
-
 //    localNotification.soundName = UILocalNotificationDefaultSoundName;
     
     
 //    localNotification.alertLaunchImage = launchImage;
     
-    UIApplication *application = [UIApplication sharedApplication];
-    application.applicationIconBadgeNumber++;
-    
-    localNotification.applicationIconBadgeNumber = application.applicationIconBadgeNumber;
+//    UIApplication *application = [UIApplication sharedApplication];
+//    application.applicationIconBadgeNumber++;
+//    
+//    localNotification.applicationIconBadgeNumber = application.applicationIconBadgeNumber;
     
     [self performSelectorOnMainThread:@selector(scheduleNotification:)
                            withObject:localNotification waitUntilDone:NO];
@@ -174,10 +185,10 @@
                 rez = UIBackgroundFetchResultNewData;
                 [self addNottification];
             }
-            else
-            {
-                [self setBGStatus:NO];
-            }
+//            else
+//            {
+//                [self setBGStatus:NO];
+//            }
             
             completionHandler(rez);
         }];
@@ -199,21 +210,21 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    bgTask = [application beginBackgroundTaskWithExpirationHandler:^{
-        // Clean up any unfinished task business by marking where you
-        // stopped or ending the task outright.
-        [application endBackgroundTask:bgTask];
-        bgTask = UIBackgroundTaskInvalid;
-    }];
-    
-    // Start the long-running task and return immediately.
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        // Do the work associated with the task, preferably in chunks.
-        
-        [application endBackgroundTask:bgTask];
-        bgTask = UIBackgroundTaskInvalid;
-    });
+//    bgTask = [application beginBackgroundTaskWithExpirationHandler:^{
+//        // Clean up any unfinished task business by marking where you
+//        // stopped or ending the task outright.
+//        [application endBackgroundTask:bgTask];
+//        bgTask = UIBackgroundTaskInvalid;
+//    }];
+//    
+//    // Start the long-running task and return immediately.
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        
+//        // Do the work associated with the task, preferably in chunks.
+//        
+//        [application endBackgroundTask:bgTask];
+//        bgTask = UIBackgroundTaskInvalid;
+//    });
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -233,6 +244,8 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[NSUserDefaults standardUserDefaults] setObject:self.userDictionary forKey:BACKGROUND_DATA_KEY];
+    
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
@@ -245,27 +258,99 @@
 }
 
 
+//
+//- (void)scheduleAlarmForDate:(NSDate*)theDate
+//{
+//    UIApplication* app = [UIApplication sharedApplication];
+//    NSArray*    oldNotifications = [app scheduledLocalNotifications];
+//    
+//    // Clear out the old notification before scheduling a new one.
+//    if ([oldNotifications count] > 0)
+//        [app cancelAllLocalNotifications];
+//    
+//    // Create a new notification.
+//    UILocalNotification* alarm = [[UILocalNotification alloc] init];
+//    if (alarm)
+//    {
+//        alarm.fireDate = theDate;
+//        alarm.timeZone = [NSTimeZone defaultTimeZone];
+//        alarm.repeatInterval = 0;
+//        alarm.soundName = @"alarmsound.caf";
+//        alarm.alertBody = @"Time to wake up!";
+//        
+//        [app scheduleLocalNotification:alarm];
+//    }
+//}
 
-- (void)scheduleAlarmForDate:(NSDate*)theDate
-{
-    UIApplication* app = [UIApplication sharedApplication];
-    NSArray*    oldNotifications = [app scheduledLocalNotifications];
+
+-(void) setiCalEventOnDate:(NSDate*)iDate {
+    NSMutableDictionary*cfg = [[[NSUserDefaults standardUserDefaults] objectForKey:KEY_CONFIG] mutableCopy];
+
+    EKEventStore *eventStore = [[EKEventStore alloc] init];
+    //get old event ID
+    NSString*eventID = [cfg objectForKey:KEY_CONFIG_OLD_EVENT];
     
-    // Clear out the old notification before scheduling a new one.
-    if ([oldNotifications count] > 0)
-        [app cancelAllLocalNotifications];
-    
-    // Create a new notification.
-    UILocalNotification* alarm = [[UILocalNotification alloc] init];
-    if (alarm)
-    {
-        alarm.fireDate = theDate;
-        alarm.timeZone = [NSTimeZone defaultTimeZone];
-        alarm.repeatInterval = 0;
-        alarm.soundName = @"alarmsound.caf";
-        alarm.alertBody = @"Time to wake up!";
-        
-        [app scheduleLocalNotification:alarm];
+    if (eventID) {
+        EKEvent *eventToRemove = [eventStore eventWithIdentifier:eventID];
+        NSError* error = nil;
+        [eventStore removeEvent:eventToRemove span:EKSpanThisEvent error:&error];
+        if (!error) {
+            eventID = nil;
+            [cfg removeObjectForKey:KEY_CONFIG_OLD_EVENT];
+            [[NSUserDefaults standardUserDefaults] setObject:cfg forKey:KEY_CONFIG];
+        }
     }
+    
+    BOOL can_add =[[cfg objectForKey:KEY_CONFIG_ADDTOCALENDAR] boolValue ];
+
+    if (can_add == NO) {
+        return;
+    }
+    
+
+    
+    
+    // Set the Date and Time for the Event
+//    NSDateComponents *comps = [[NSDateComponents alloc] init];
+//    [comps setYear:2013];
+//    [comps setMonth:3];
+//    [comps setDay:5];
+//    [comps setHour:9];
+//    [comps setMinute:0];
+//    [comps setTimeZone:[NSTimeZone systemTimeZone]];
+//    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+//    NSDate *eventDateAndTime = [cal dateFromComponents:comps];
+    
+    // Set iCal Event
+    
+    
+    EKEvent *event = [EKEvent eventWithEventStore:eventStore];
+    event.title = NSLocalizedString(@"Fort-fitness: membership expire", @"Fort-fitness: membership expire"),
+    
+    event.startDate = iDate;
+    event.endDate = iDate;//[[NSDate alloc] initWithTimeInterval:600 sinceDate:event.startDate];
+    
+    // Check if App has Permission to Post to the Calendar
+    [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+        if (granted){
+            //---- code here when user allows your app to access their calendar.
+            [event setCalendar:[eventStore defaultCalendarForNewEvents]];
+            NSError *err;
+            [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
+            if (!error) {
+                NSString*eventID = event.eventIdentifier;
+                [cfg setObject:eventID forKey:KEY_CONFIG_OLD_EVENT];
+                [[NSUserDefaults standardUserDefaults] setObject:cfg forKey:KEY_CONFIG];
+            }
+        }else
+        {
+            //----- code here when user does NOT allow your app to access their calendar.
+            [event setCalendar:[eventStore defaultCalendarForNewEvents]];
+            NSError *err;
+            [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
+        }
+        
+    }];
 }
+
 @end

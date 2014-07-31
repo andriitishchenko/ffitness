@@ -30,6 +30,7 @@
 		4A4B555819870BF40071B182 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4B555719870BF40071B182 /* AVFoundation.framework */; };
 		4A4B555A19870BFD0071B182 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4B555919870BFD0071B182 /* QuartzCore.framework */; };
 		4A4B555D198716FD0071B182 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4B555C198716FD0071B182 /* TableViewController.m */; };
+		4A5474A1198AF4B900E13A4B /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5474A0198AF4B900E13A4B /* EventKit.framework */; };
 		4A859E451989AFA200A985A0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A859E441989AFA200A985A0 /* MessageUI.framework */; };
 		EFC0901D261242AE951E21E7 /* libPods-ffitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD73191BC0448AA6CD9C24 /* libPods-ffitness.a */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		4A4B555919870BFD0071B182 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4A4B555B198716FD0071B182 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		4A4B555C198716FD0071B182 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		4A5474A0198AF4B900E13A4B /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		4A859E441989AFA200A985A0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B1D18CBFD3A54A80905A80CF /* Pods-ffitness.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ffitness.xcconfig"; path = "Pods/Pods-ffitness.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A5474A1198AF4B900E13A4B /* EventKit.framework in Frameworks */,
 				4A859E451989AFA200A985A0 /* MessageUI.framework in Frameworks */,
 				4A4B555A19870BFD0071B182 /* QuartzCore.framework in Frameworks */,
 				4A4B555819870BF40071B182 /* AVFoundation.framework in Frameworks */,
@@ -136,6 +139,7 @@
 		4A3F753A1986E1C800DDA3B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A5474A0198AF4B900E13A4B /* EventKit.framework */,
 				4A859E441989AFA200A985A0 /* MessageUI.framework */,
 				4A4B555919870BFD0071B182 /* QuartzCore.framework */,
 				4A4B555719870BF40071B182 /* AVFoundation.framework */,

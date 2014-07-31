@@ -187,7 +187,9 @@
             self.datasource = (NSMutableDictionary*)response;
             
             if ([self.datasource count] == 4){
-                [[NSUserDefaults standardUserDefaults] setObject:self.datasource forKey:BACKGROUND_DATA_KEY];
+                
+                AppDelegate*ap = ApplicationDelegate;
+                ap.userDictionary = [self.datasource copy];
                 [[NSUserDefaults standardUserDefaults] setObject:self.postCredentials forKey:PAYLOADS];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self performSegueWithIdentifier:@"viewDetails" sender:sender];
