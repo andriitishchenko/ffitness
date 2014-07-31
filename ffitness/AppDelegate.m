@@ -37,7 +37,8 @@
             [cfg setObject:@(YES) forKey: KEY_CONFIG_NOTIFY];
             [[NSUserDefaults standardUserDefaults] setObject:cfg forKey:KEY_CONFIG];
         }
-        [self setBGStatus:[[cfg objectForKey:KEY_CONFIG_AUTOUPDATE] boolValue ]];
+        BOOL bgstatus =[[cfg objectForKey:KEY_CONFIG_AUTOUPDATE] boolValue ];
+        [self setBGStatus:bgstatus];
         
         
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -122,7 +123,11 @@
     
     NSString* exp = [[oldD objectForKey:KEY_EXPIRE] emptyForNil];
     NSString* count = [[oldD objectForKey:KEY_BALANCE] emptyForNil];
-    NSString*msg = [NSString stringWithFormat:@"%@: %@\n%@ %@", NSLocalizedString(@"Remaining visits", @"Remaining visits"),count,NSLocalizedString(@"till", @"till"),exp];
+    NSString*msg = [NSString stringWithFormat:@"%@: %@\n%@ %@",
+                    NSLocalizedString(@"Remaining visits", @"Remaining visits"),
+                    count,
+                    NSLocalizedString(@"till", @"till"),
+                    exp];
     
     //[[UIApplication sharedApplication] cancelAllLocalNotifications];
     
@@ -159,17 +164,7 @@
 }
 
 -(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
-    /*
-     UINavigationController *navigationController = (UINavigationController*)self.window.rootViewController;
-     
-     id topViewController = navigationController.topViewController;
-     if ([topViewController isKindOfClass:[ViewController class]]) {
-     [(ViewController*)topViewController insertNewObjectForFetchWithCompletionHandler:completionHandler];
-     } else {
-     NSLog(@"Not the right class %@.", [topViewController class]);
-     completionHandler(UIBackgroundFetchResultFailed);
-     }
-     */
+    
    __block UIBackgroundFetchResult rez = UIBackgroundFetchResultNoData;
     
     NSMutableDictionary*auth = [API getSuccessCredentials];
@@ -177,19 +172,23 @@
         [[API sharedInstance] getUpdatesOnComplete:^(id response, NSError *error) {
             if (response && !error) {
                 rez = UIBackgroundFetchResultNewData;
+                [self addNottification];
             }
             else
             {
                 [self setBGStatus:NO];
             }
+            
+            completionHandler(rez);
         }];
     }
     else
     {
         [self setBGStatus:NO];
+        completionHandler(rez);
     }
     
-    completionHandler(rez);
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -200,9 +199,21 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-//    [self addNottification];
+    bgTask = [application beginBackgroundTaskWithExpirationHandler:^{
+        // Clean up any unfinished task business by marking where you
+        // stopped or ending the task outright.
+        [application endBackgroundTask:bgTask];
+        bgTask = UIBackgroundTaskInvalid;
+    }];
+    
+    // Start the long-running task and return immediately.
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        // Do the work associated with the task, preferably in chunks.
+        
+        [application endBackgroundTask:bgTask];
+        bgTask = UIBackgroundTaskInvalid;
+    });
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -233,4 +244,28 @@
     application.applicationIconBadgeNumber = 0;
 }
 
+
+
+- (void)scheduleAlarmForDate:(NSDate*)theDate
+{
+    UIApplication* app = [UIApplication sharedApplication];
+    NSArray*    oldNotifications = [app scheduledLocalNotifications];
+    
+    // Clear out the old notification before scheduling a new one.
+    if ([oldNotifications count] > 0)
+        [app cancelAllLocalNotifications];
+    
+    // Create a new notification.
+    UILocalNotification* alarm = [[UILocalNotification alloc] init];
+    if (alarm)
+    {
+        alarm.fireDate = theDate;
+        alarm.timeZone = [NSTimeZone defaultTimeZone];
+        alarm.repeatInterval = 0;
+        alarm.soundName = @"alarmsound.caf";
+        alarm.alertBody = @"Time to wake up!";
+        
+        [app scheduleLocalNotification:alarm];
+    }
+}
 @end
