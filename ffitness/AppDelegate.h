@@ -12,7 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 -(void)setBGStatus:(BOOL)status;
--(void)addNottification;
+-(void)addNottification:(NSMutableDictionary*)newuserdata;
 -(void) setiCalEventOnDate:(NSDate*)iDate;
 @property (strong,nonatomic) NSMutableDictionary* userDictionary;
+-(void)saveState;
 @end

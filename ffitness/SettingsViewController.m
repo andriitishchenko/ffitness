@@ -62,7 +62,6 @@
     self.switchNotifications.on = [[self.datasource objectForKey:KEY_CONFIG_NOTIFY] boolValue];
     self.switchUpdateAutomaticaly.on = [[self.datasource objectForKey:KEY_CONFIG_AUTOUPDATE] boolValue];
     self.switchAddToCalendar.on = [[self.datasource objectForKey:KEY_CONFIG_ADDTOCALENDAR] boolValue];
-
 }
 
 

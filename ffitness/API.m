@@ -187,18 +187,6 @@
             completion(nil, error);
         }
     }];
-    
-//    [API requestAsyncWith:@"key2gym/login" method:RequestMethodPost params:params completion:^(id response, NSError *error) {
-//        if (response && !error) {
-//            NSMutableDictionary*rez = [self parceHTML:(NSData*)response];
-//            if (completion) {
-//                completion(rez, error);
-//            }
-//        }
-//        else if (completion) {
-//            completion(nil, error);
-//        }
-//    }];
 }
 
 -(void)informIfUpdatenewDict:(NSMutableDictionary*)newD
@@ -206,11 +194,14 @@
     if (newD) {        
         AppDelegate*ap = ApplicationDelegate;
         if (![newD isEqualToDictionary:ap.userDictionary]) {
-            [ap addNottification];
+            NSLog(@"OLD = %@ \nNEW = %@",ap.userDictionary,newD );
+            [ap addNottification:newD];
+            ap.userDictionary = newD;
             
             NSString*newdate = [newD objectForKey:KEY_EXPIRE];
             
             if (![newdate isEqualToString:[ap.userDictionary objectForKey:KEY_EXPIRE]]) {
+                NSLog(@"ADDED iDate = %@", newdate);
                 NSDate*ndate = [API stringToDate:newdate];
                 [ap setiCalEventOnDate:ndate];
             }
@@ -304,7 +295,7 @@
     
     //NSArray*ll =  [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url_path];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url_path];
-    [request setTimeoutInterval:5];
+    [request setTimeoutInterval:25];
     [request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request addValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
     

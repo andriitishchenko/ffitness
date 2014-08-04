@@ -109,7 +109,7 @@
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
 }
 
--(void)addNottification
+-(void)addNottification:(NSMutableDictionary*)newuserdata;
 {
 //    if (![NSThread isMainThread]) {
 //        [self performSelectorOnMainThread:@selector(addNottification) withObject:nil waitUntilDone:NO];
@@ -118,22 +118,24 @@
     
     UIApplication* app = [UIApplication sharedApplication];
     if([app applicationState] != UIApplicationStateBackground) {
+        self.userDictionary = newuserdata;
         return;
     }
     
     
-    NSMutableDictionary*oldD = [[[NSUserDefaults standardUserDefaults] objectForKey:BACKGROUND_DATA_KEY] mutableCopy];
-    if (!oldD) {
+//    NSMutableDictionary*oldD = [[[NSUserDefaults standardUserDefaults] objectForKey:BACKGROUND_DATA_KEY] mutableCopy];
+    if (!newuserdata) {
         return;
     }
     
     NSMutableDictionary*cfg = [[[NSUserDefaults standardUserDefaults] objectForKey:KEY_CONFIG] mutableCopy];
+    
     if ([[cfg objectForKey:KEY_CONFIG_NOTIFY] boolValue]==NO) {
         return;
     }
     
-    NSString* exp = [[oldD objectForKey:KEY_EXPIRE] emptyForNil];
-    NSString* count = [[oldD objectForKey:KEY_BALANCE] emptyForNil];
+    NSString* exp = [[newuserdata objectForKey:KEY_EXPIRE] emptyForNil];
+    NSString* count = [[newuserdata objectForKey:KEY_BALANCE] emptyForNil];
     NSString*msg = [NSString stringWithFormat:@"%@: %@\n%@ %@",
                     NSLocalizedString(@"Remaining visits", @"Remaining visits"),
                     count,
@@ -164,6 +166,8 @@
 //    
 //    localNotification.applicationIconBadgeNumber = application.applicationIconBadgeNumber;
     
+    self.userDictionary = newuserdata;
+    
     [self performSelectorOnMainThread:@selector(scheduleNotification:)
                            withObject:localNotification waitUntilDone:NO];
 }
@@ -183,7 +187,6 @@
         [[API sharedInstance] getUpdatesOnComplete:^(id response, NSError *error) {
             if (response && !error) {
                 rez = UIBackgroundFetchResultNewData;
-                [self addNottification];
             }
 //            else
 //            {
@@ -244,8 +247,12 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [self saveState];
+}
+
+-(void)saveState
+{
     [[NSUserDefaults standardUserDefaults] setObject:self.userDictionary forKey:BACKGROUND_DATA_KEY];
-    
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
