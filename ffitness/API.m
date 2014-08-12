@@ -68,11 +68,11 @@
         NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
         
         NSString *fullCachePath = [[myPath stringByAppendingPathComponent:bundleIdentifier] stringByAppendingPathComponent:cachePath];
-        NSLog(@"Cache path: %@\n", fullCachePath);
+        ALog(@"Cache path: %@\n", fullCachePath);
 #else
         NSString *cachePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"/nsurlsessiondemo.cache"];
         
-        NSLog(@"Cache path: %@\n", cachePath);
+        ALog(@"Cache path: %@\n", cachePath);
 #endif
         
         NSURLCache *myCache = [[NSURLCache alloc] initWithMemoryCapacity: 16384 diskCapacity: 268435456 diskPath: cachePath];
@@ -194,14 +194,14 @@
     if (newD) {        
         AppDelegate*ap = ApplicationDelegate;
         if (![newD isEqualToDictionary:ap.userDictionary]) {
-            NSLog(@"OLD = %@ \nNEW = %@",ap.userDictionary,newD );
+            ALog(@"OLD = %@ \nNEW = %@",ap.userDictionary,newD );
             [ap addNottification:newD];
             ap.userDictionary = newD;
             
             NSString*newdate = [newD objectForKey:KEY_EXPIRE];
-            
+
             if (![newdate isEqualToString:[ap.userDictionary objectForKey:KEY_EXPIRE]]) {
-                NSLog(@"ADDED iDate = %@", newdate);
+                ALog(@"ADDED iDate = %@", newdate);
                 NSDate*ndate = [API stringToDate:newdate];
                 [ap setiCalEventOnDate:ndate];
             }
@@ -313,7 +313,7 @@
 
     ALog(@"\n\nREQUEST \n %@ \n%@",request.allHTTPHeaderFields,params);
     
-    //            NSLog(@"%@",[request.HTTPBody toStringUTF8]);
+    //            ALog(@"%@",[request.HTTPBody toStringUTF8]);
     
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *session_error) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
@@ -402,7 +402,7 @@
 //didFinishDownloadingToURL:(NSURL *)location
 //{
 //    // use code above from completion handler
-//    NSLog(@"Finished");
+//    ALog(@"Finished");
 //}
 //
 //-(void)URLSession:(NSURLSession *)session
@@ -411,7 +411,7 @@
 //totalBytesWritten:(int64_t)totalBytesWritten
 //totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
 //{
-//    NSLog(@"%f / %f", (double)totalBytesWritten,(double)totalBytesExpectedToWrite);
+//    ALog(@"%f / %f", (double)totalBytesWritten,(double)totalBytesExpectedToWrite);
 //}
 
 +(NSMutableDictionary*)getSuccessCredentials{

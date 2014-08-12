@@ -32,7 +32,7 @@
 		4A4B555D198716FD0071B182 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4B555C198716FD0071B182 /* TableViewController.m */; };
 		4A5474A1198AF4B900E13A4B /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5474A0198AF4B900E13A4B /* EventKit.framework */; };
 		4A859E451989AFA200A985A0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A859E441989AFA200A985A0 /* MessageUI.framework */; };
-		EFC0901D261242AE951E21E7 /* libPods-ffitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD73191BC0448AA6CD9C24 /* libPods-ffitness.a */; };
+		75BFF4B041DC4B659C773A9A /* libPods-fortfitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C12F78267994F2FA762A378 /* libPods-fortfitness.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,24 +47,26 @@
 
 /* Begin PBXFileReference section */
 		01BD73191BC0448AA6CD9C24 /* libPods-ffitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ffitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C40684275874A4AB0F23F82 /* Pods-fortfitness.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fortfitness.xcconfig"; path = "Pods/Pods-fortfitness.xcconfig"; sourceTree = "<group>"; };
+		3C12F78267994F2FA762A378 /* libPods-fortfitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fortfitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3AA45619879F2A00AE3551 /* logo_font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo_font.ttf; sourceTree = "<group>"; };
-		4A3F75381986E1C800DDA3B1 /* ffitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ffitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A3F75381986E1C800DDA3B1 /* fortfitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fortfitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3F753B1986E1C800DDA3B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4A3F753D1986E1C800DDA3B1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4A3F753F1986E1C800DDA3B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		4A3F75431986E1C800DDA3B1 /* ffitness-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ffitness-Info.plist"; sourceTree = "<group>"; };
+		4A3F75431986E1C800DDA3B1 /* fortfitness-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "fortfitness-Info.plist"; sourceTree = "<group>"; };
 		4A3F75451986E1C800DDA3B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A3F75471986E1C800DDA3B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4A3F75491986E1C800DDA3B1 /* ffitness-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ffitness-Prefix.pch"; sourceTree = "<group>"; };
+		4A3F75491986E1C800DDA3B1 /* fortfitness-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fortfitness-Prefix.pch"; sourceTree = "<group>"; };
 		4A3F754A1986E1C800DDA3B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4A3F754B1986E1C800DDA3B1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4A3F754E1986E1C800DDA3B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A3F75501986E1C800DDA3B1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4A3F75511986E1C800DDA3B1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4A3F75531986E1C800DDA3B1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4A3F75591986E1C800DDA3B1 /* ffitnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ffitnessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A3F75591986E1C800DDA3B1 /* fortfitnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fortfitnessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3F755A1986E1C800DDA3B1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		4A3F75621986E1C800DDA3B1 /* ffitnessTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ffitnessTests-Info.plist"; sourceTree = "<group>"; };
+		4A3F75621986E1C800DDA3B1 /* fortfitnessTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "fortfitnessTests-Info.plist"; sourceTree = "<group>"; };
 		4A3F75641986E1C800DDA3B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A3F75661986E1C800DDA3B1 /* ffitnessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ffitnessTests.m; sourceTree = "<group>"; };
 		4A3F75701986E45200DDA3B1 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
@@ -99,7 +101,7 @@
 				4A3F753E1986E1C800DDA3B1 /* CoreGraphics.framework in Frameworks */,
 				4A3F75401986E1C800DDA3B1 /* UIKit.framework in Frameworks */,
 				4A3F753C1986E1C800DDA3B1 /* Foundation.framework in Frameworks */,
-				EFC0901D261242AE951E21E7 /* libPods-ffitness.a in Frameworks */,
+				75BFF4B041DC4B659C773A9A /* libPods-fortfitness.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,14 +126,15 @@
 				4A3F753A1986E1C800DDA3B1 /* Frameworks */,
 				4A3F75391986E1C800DDA3B1 /* Products */,
 				B1D18CBFD3A54A80905A80CF /* Pods-ffitness.xcconfig */,
+				2C40684275874A4AB0F23F82 /* Pods-fortfitness.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
 		4A3F75391986E1C800DDA3B1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A3F75381986E1C800DDA3B1 /* ffitness.app */,
-				4A3F75591986E1C800DDA3B1 /* ffitnessTests.xctest */,
+				4A3F75381986E1C800DDA3B1 /* fortfitness.app */,
+				4A3F75591986E1C800DDA3B1 /* fortfitnessTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				4A3F753F1986E1C800DDA3B1 /* UIKit.framework */,
 				4A3F755A1986E1C800DDA3B1 /* XCTest.framework */,
 				01BD73191BC0448AA6CD9C24 /* libPods-ffitness.a */,
+				3C12F78267994F2FA762A378 /* libPods-fortfitness.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -181,10 +185,10 @@
 			isa = PBXGroup;
 			children = (
 				4A3AA45619879F2A00AE3551 /* logo_font.ttf */,
-				4A3F75431986E1C800DDA3B1 /* ffitness-Info.plist */,
+				4A3F75431986E1C800DDA3B1 /* fortfitness-Info.plist */,
 				4A3F75441986E1C800DDA3B1 /* InfoPlist.strings */,
 				4A3F75471986E1C800DDA3B1 /* main.m */,
-				4A3F75491986E1C800DDA3B1 /* ffitness-Prefix.pch */,
+				4A3F75491986E1C800DDA3B1 /* fortfitness-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -201,7 +205,7 @@
 		4A3F75611986E1C800DDA3B1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4A3F75621986E1C800DDA3B1 /* ffitnessTests-Info.plist */,
+				4A3F75621986E1C800DDA3B1 /* fortfitnessTests-Info.plist */,
 				4A3F75631986E1C800DDA3B1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -219,9 +223,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4A3F75371986E1C800DDA3B1 /* ffitness */ = {
+		4A3F75371986E1C800DDA3B1 /* fortfitness */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A3F756A1986E1C800DDA3B1 /* Build configuration list for PBXNativeTarget "ffitness" */;
+			buildConfigurationList = 4A3F756A1986E1C800DDA3B1 /* Build configuration list for PBXNativeTarget "fortfitness" */;
 			buildPhases = (
 				9FB01F17AE3C4C85BB766046 /* Check Pods Manifest.lock */,
 				4A3F75341986E1C800DDA3B1 /* Sources */,
@@ -233,14 +237,14 @@
 			);
 			dependencies = (
 			);
-			name = ffitness;
+			name = fortfitness;
 			productName = ffitness;
-			productReference = 4A3F75381986E1C800DDA3B1 /* ffitness.app */;
+			productReference = 4A3F75381986E1C800DDA3B1 /* fortfitness.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4A3F75581986E1C800DDA3B1 /* ffitnessTests */ = {
+		4A3F75581986E1C800DDA3B1 /* fortfitnessTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A3F756D1986E1C800DDA3B1 /* Build configuration list for PBXNativeTarget "ffitnessTests" */;
+			buildConfigurationList = 4A3F756D1986E1C800DDA3B1 /* Build configuration list for PBXNativeTarget "fortfitnessTests" */;
 			buildPhases = (
 				4A3F75551986E1C800DDA3B1 /* Sources */,
 				4A3F75561986E1C800DDA3B1 /* Frameworks */,
@@ -251,9 +255,9 @@
 			dependencies = (
 				4A3F755F1986E1C800DDA3B1 /* PBXTargetDependency */,
 			);
-			name = ffitnessTests;
+			name = fortfitnessTests;
 			productName = ffitnessTests;
-			productReference = 4A3F75591986E1C800DDA3B1 /* ffitnessTests.xctest */;
+			productReference = 4A3F75591986E1C800DDA3B1 /* fortfitnessTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -278,7 +282,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4A3F75331986E1C800DDA3B1 /* Build configuration list for PBXProject "ffitness" */;
+			buildConfigurationList = 4A3F75331986E1C800DDA3B1 /* Build configuration list for PBXProject "fortfitness" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -291,8 +295,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4A3F75371986E1C800DDA3B1 /* ffitness */,
-				4A3F75581986E1C800DDA3B1 /* ffitnessTests */,
+				4A3F75371986E1C800DDA3B1 /* fortfitness */,
+				4A3F75581986E1C800DDA3B1 /* fortfitnessTests */,
 			);
 		};
 /* End PBXProject section */
@@ -347,7 +351,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-ffitness-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-fortfitness-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -381,7 +385,7 @@
 /* Begin PBXTargetDependency section */
 		4A3F755F1986E1C800DDA3B1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4A3F75371986E1C800DDA3B1 /* ffitness */;
+			target = 4A3F75371986E1C800DDA3B1 /* fortfitness */;
 			targetProxy = 4A3F755E1986E1C800DDA3B1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -446,7 +450,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -468,6 +472,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -478,7 +483,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -486,30 +491,32 @@
 		};
 		4A3F756B1986E1C800DDA3B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1D18CBFD3A54A80905A80CF /* Pods-ffitness.xcconfig */;
+			baseConfigurationReference = 2C40684275874A4AB0F23F82 /* Pods-fortfitness.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ffitness/ffitness-Prefix.pch";
-				INFOPLIST_FILE = "ffitness/ffitness-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "ffitness/fortfitness-Prefix.pch";
+				INFOPLIST_FILE = "ffitness/fortfitness-Info.plist";
+				PRODUCT_NAME = fortfitness;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		4A3F756C1986E1C800DDA3B1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1D18CBFD3A54A80905A80CF /* Pods-ffitness.xcconfig */;
+			baseConfigurationReference = 2C40684275874A4AB0F23F82 /* Pods-fortfitness.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ignite Ltd (BE4464H94U)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ffitness/ffitness-Prefix.pch";
-				INFOPLIST_FILE = "ffitness/ffitness-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "ffitness/fortfitness-Prefix.pch";
+				INFOPLIST_FILE = "ffitness/fortfitness-Info.plist";
+				PRODUCT_NAME = fortfitness;
+				PROVISIONING_PROFILE = "4dce0fda-323a-4751-bf60-b4d0c05b812e";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -529,8 +536,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "ffitnessTests/ffitnessTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "ffitnessTests/fortfitnessTests-Info.plist";
+				PRODUCT_NAME = fortfitnessTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -547,8 +554,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ffitness/ffitness-Prefix.pch";
-				INFOPLIST_FILE = "ffitnessTests/ffitnessTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "ffitnessTests/fortfitnessTests-Info.plist";
+				PRODUCT_NAME = fortfitnessTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -557,7 +564,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4A3F75331986E1C800DDA3B1 /* Build configuration list for PBXProject "ffitness" */ = {
+		4A3F75331986E1C800DDA3B1 /* Build configuration list for PBXProject "fortfitness" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A3F75681986E1C800DDA3B1 /* Debug */,
@@ -566,7 +573,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A3F756A1986E1C800DDA3B1 /* Build configuration list for PBXNativeTarget "ffitness" */ = {
+		4A3F756A1986E1C800DDA3B1 /* Build configuration list for PBXNativeTarget "fortfitness" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A3F756B1986E1C800DDA3B1 /* Debug */,
@@ -575,7 +582,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A3F756D1986E1C800DDA3B1 /* Build configuration list for PBXNativeTarget "ffitnessTests" */ = {
+		4A3F756D1986E1C800DDA3B1 /* Build configuration list for PBXNativeTarget "fortfitnessTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A3F756E1986E1C800DDA3B1 /* Debug */,

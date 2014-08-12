@@ -198,7 +198,7 @@
         }
         else
         {
-            ALog(@"Login err %@",[error domain]);
+//            ALog(@"Login err %@",[error domain]);
             [self failMessage];
         }
 

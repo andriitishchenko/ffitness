@@ -9,7 +9,7 @@
 #ifndef SBank_macro_h
 #define SBank_macro_h
 
-#define ALog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define ALog(fmt, ...) ALog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #define ApplicationDelegate                 ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 #define UserDefaults                        [NSUserDefaults standardUserDefaults]
 #define SharedApplication                   [UIApplication sharedApplication]

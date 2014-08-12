@@ -122,7 +122,7 @@
     _videoDevice = [AVCaptureDevice
                     defaultDeviceWithMediaType:AVMediaTypeVideo];
     if (!_videoDevice) {
-        NSLog(@"No video camera on this device!");
+        ALog(@"No video camera on this device!");
         return;
     }
     // 3
@@ -230,7 +230,7 @@ didOutputMetadataObjects:(NSArray *)metadataObjects
 //    [self showBarcodeAlert:barcode];
     
     
-//    NSLog(@"%@", barcode.getBarcodeData);
+//    ALog(@"%@", barcode.getBarcodeData);
 }
 - (void) showBarcodeAlert:(Barcode *)barcode{
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -270,7 +270,7 @@ didOutputMetadataObjects:(NSArray *)metadataObjects
 
 - (void) settingsChanged:(NSMutableArray *)allowedTypes{
     for(NSObject * obj in allowedTypes){
-        NSLog(@"%@",obj);
+        ALog(@"%@",obj);
     }
     if(allowedTypes){
         self.allowedBarcodeTypes = [NSMutableArray arrayWithArray:allowedTypes];

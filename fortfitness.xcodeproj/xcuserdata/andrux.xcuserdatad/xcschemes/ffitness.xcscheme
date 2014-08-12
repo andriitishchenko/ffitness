@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4A3F75371986E1C800DDA3B1"
-               BuildableName = "ffitness.app"
-               BlueprintName = "ffitness"
-               ReferencedContainer = "container:ffitness.xcodeproj">
+               BuildableName = "fortfitness.app"
+               BlueprintName = "fortfitness"
+               ReferencedContainer = "container:fortfitness.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4A3F75581986E1C800DDA3B1"
-               BuildableName = "ffitnessTests.xctest"
-               BlueprintName = "ffitnessTests"
-               ReferencedContainer = "container:ffitness.xcodeproj">
+               BuildableName = "fortfitnessTests.xctest"
+               BlueprintName = "fortfitnessTests"
+               ReferencedContainer = "container:fortfitness.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4A3F75371986E1C800DDA3B1"
-            BuildableName = "ffitness.app"
-            BlueprintName = "ffitness"
-            ReferencedContainer = "container:ffitness.xcodeproj">
+            BuildableName = "fortfitness.app"
+            BlueprintName = "fortfitness"
+            ReferencedContainer = "container:fortfitness.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4A3F75371986E1C800DDA3B1"
-            BuildableName = "ffitness.app"
-            BlueprintName = "ffitness"
-            ReferencedContainer = "container:ffitness.xcodeproj">
+            BuildableName = "fortfitness.app"
+            BlueprintName = "fortfitness"
+            ReferencedContainer = "container:fortfitness.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4A3F75371986E1C800DDA3B1"
-            BuildableName = "ffitness.app"
-            BlueprintName = "ffitness"
-            ReferencedContainer = "container:ffitness.xcodeproj">
+            BuildableName = "fortfitness.app"
+            BlueprintName = "fortfitness"
+            ReferencedContainer = "container:fortfitness.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

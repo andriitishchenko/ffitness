@@ -13,12 +13,13 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-
-    #import "AppDelegate.h"
     #import "macro.h"
     #import <NSTypeExtended/NSTypeExtended.h>
 
     #import "API.h"
+    #import "AppDelegate.h"
+
+
 
 #define KEY_FIO @"fio"
 #define KEY_EXPIRE @"expire"
