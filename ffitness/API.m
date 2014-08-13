@@ -166,16 +166,7 @@
 
 
 -(void)userLogIn:(NSDictionary*)params Complete:(void (^)(id response, NSError* error))completion
-{
-    //card=ss&day=1&month=1&year=1986
-//    NSDictionary*auth =@{
-//                         @"card":@"140102551",
-//                         @"day":@"5",
-//                         @"month":@"9",
-//                         @"year":@"1986",
-//                         
-//                         };
-    
+{    
     [API authWithParams:params completion:^(id response, NSError *error) {
         if (response && !error) {
             NSMutableDictionary*rez = [self parceHTML:(NSData*)response];

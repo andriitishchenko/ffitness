@@ -61,38 +61,7 @@
         }
         BOOL bgstatus =[[cfg objectForKey:KEY_CONFIG_AUTOUPDATE] boolValue ];
         [self setBGStatus:bgstatus];
-        
 
-    
-//        [[UIButton appearance ] setTintColor:[UIColor whiteColor]];
-//        [[UIButton appearance ] setBackgroundColor:colorButtonBackground];
-
-//    }
-    
-    
-    
-    
-//    [[API sharedInstance] getUpdatesOnComplete:^(id response, NSError *error) {
-//        if (response && !error) {
-//        }
-//    }];
-//    NSDictionary*auth =@{
-//                         @"card":@"14010255",
-//                         @"day":@"5",
-//                         @"month":@"9",
-//                         @"year":@"1986",
-//
-//                         };
-//    [[API sharedInstance] userLogIn:auth Complete:^(id response, NSError *error) {
-//        ALog(@"1");
-//    }];
-    
-     
-     
-//     :auth completion:^(id response, NSError *error) {
-//        ALog(@"1");
-//    }];
-    
     return YES;
 }
 
