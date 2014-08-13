@@ -207,4 +207,34 @@
 
     
 }
+
+- (IBAction)buttonOpenLink_click:(id)sender {
+    [self openInSafary:@"http://fort-fitness.com.ua/"];
+}
+
+
+-(void)openInSafary:(NSString*)link
+{
+    if ([link length] > 0) {
+        NSURL *url = [NSURL URLWithString:[link stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        
+        
+        if ([[UIApplication sharedApplication] canOpenURL:url])
+        {
+            [[UIApplication sharedApplication] openURL:url];
+        }
+        else
+        {
+            NSString*message = NSLocalizedString(@"Could not open URL due Safari restriction on the device. Please check Settings>General>Restrictions", @"safari err message");
+            
+            ALAlertBanner *banner = [ALAlertBanner alertBannerForView:self.view
+                                                                style:ALAlertBannerStyleFailure
+                                                             position:ALAlertBannerPositionTop
+                                                                title:NSLocalizedString(@"Fail", @"Fail")
+                                                             subtitle:message];
+            [banner show];
+        }
+    }
+}
+
 @end

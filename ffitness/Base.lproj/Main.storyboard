@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="JDM-N7-tek">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
     </dependencies>
     <scenes>
@@ -289,12 +288,12 @@
                                         </date>
                                     </datePicker>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9JU-38-cBL">
-                                        <rect key="frame" x="20" y="244" width="85" height="17"/>
+                                        <rect key="frame" x="20" y="244" width="84.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of birthday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQo-Fc-DS6">
-                                        <rect key="frame" x="20" y="20" width="104" height="17"/>
+                                        <rect key="frame" x="20" y="20" width="103.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -325,18 +324,34 @@
                                             <action selector="buttonAuth_click:" destination="Mde-rb-Nbf" eventType="touchUpInside" id="E3e-iF-FMW"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EJ-rC-q8A">
+                                        <rect key="frame" x="60" y="378" width="200" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="flB-HB-vni"/>
+                                            <constraint firstAttribute="height" constant="30" id="hKa-cg-DY3"/>
+                                        </constraints>
+                                        <state key="normal" title="http://fort-fitness.com.ua/">
+                                            <color key="titleColor" red="0.25098039220000001" green="0.50196078430000002" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonOpenLink_click:" destination="Mde-rb-Nbf" eventType="touchUpInside" id="B9h-5T-9A8"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="uz8-T5-FQJ" secondAttribute="trailing" id="2Ai-aE-ZEY"/>
                                     <constraint firstItem="NQo-Fc-DS6" firstAttribute="top" secondItem="QTu-QF-MoA" secondAttribute="top" constant="20" id="3PX-nU-lTl"/>
                                     <constraint firstAttribute="trailing" secondItem="2cj-J8-vl2" secondAttribute="trailing" constant="20" id="ImH-TZ-RS9"/>
+                                    <constraint firstAttribute="centerX" secondItem="5EJ-rC-q8A" secondAttribute="centerX" id="Su3-ZR-SuO"/>
+                                    <constraint firstAttribute="bottom" secondItem="5EJ-rC-q8A" secondAttribute="bottom" id="WgN-0v-2ar"/>
                                     <constraint firstItem="h3u-cz-6u4" firstAttribute="centerY" secondItem="2cj-J8-vl2" secondAttribute="centerY" id="Y5j-BY-na1"/>
                                     <constraint firstItem="uz8-T5-FQJ" firstAttribute="leading" secondItem="QTu-QF-MoA" secondAttribute="leading" id="Z35-No-7Aq"/>
                                     <constraint firstItem="Pud-Db-xIb" firstAttribute="top" secondItem="h3u-cz-6u4" secondAttribute="bottom" constant="28" id="brZ-Ag-D5P"/>
                                     <constraint firstItem="h3u-cz-6u4" firstAttribute="top" secondItem="9JU-38-cBL" secondAttribute="bottom" constant="8" id="d72-dR-TVM"/>
                                     <constraint firstItem="NQo-Fc-DS6" firstAttribute="leading" secondItem="QTu-QF-MoA" secondAttribute="leading" constant="20" id="dhy-TI-ddC"/>
                                     <constraint firstItem="uz8-T5-FQJ" firstAttribute="top" secondItem="NQo-Fc-DS6" secondAttribute="bottom" constant="20" id="e7r-0e-EN6"/>
-                                    <constraint firstAttribute="bottom" secondItem="Pud-Db-xIb" secondAttribute="bottom" id="hRk-an-eUX"/>
+                                    <constraint firstItem="5EJ-rC-q8A" firstAttribute="top" secondItem="Pud-Db-xIb" secondAttribute="bottom" constant="21" id="fM6-Fd-n2t"/>
                                     <constraint firstItem="h3u-cz-6u4" firstAttribute="leading" secondItem="QTu-QF-MoA" secondAttribute="leading" constant="20" id="n3V-ad-K7h"/>
                                     <constraint firstItem="2cj-J8-vl2" firstAttribute="leading" secondItem="h3u-cz-6u4" secondAttribute="trailing" constant="10" id="w5b-mh-feq"/>
                                     <constraint firstAttribute="centerX" secondItem="Pud-Db-xIb" secondAttribute="centerX" id="xME-Q2-fFQ"/>
