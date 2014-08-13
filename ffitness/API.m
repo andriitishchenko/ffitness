@@ -68,7 +68,7 @@
         NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
         
         NSString *fullCachePath = [[myPath stringByAppendingPathComponent:bundleIdentifier] stringByAppendingPathComponent:cachePath];
-        ALog(@"Cache path: %@\n", fullCachePath);
+//        ALog(@"Cache path: %@\n", fullCachePath);
 #else
         NSString *cachePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"/nsurlsessiondemo.cache"];
         
@@ -194,7 +194,7 @@
     if (newD) {        
         AppDelegate*ap = ApplicationDelegate;
         if (![newD isEqualToDictionary:ap.userDictionary]) {
-            ALog(@"OLD = %@ \nNEW = %@",ap.userDictionary,newD );
+//            ALog(@"OLD = %@ \nNEW = %@",ap.userDictionary,newD );
             [ap addNottification:newD];
             ap.userDictionary = newD;
             

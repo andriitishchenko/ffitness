@@ -32,6 +32,7 @@
 		4A4B555D198716FD0071B182 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4B555C198716FD0071B182 /* TableViewController.m */; };
 		4A5474A1198AF4B900E13A4B /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5474A0198AF4B900E13A4B /* EventKit.framework */; };
 		4A859E451989AFA200A985A0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A859E441989AFA200A985A0 /* MessageUI.framework */; };
+		4AC21717199C053C006E0D7A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AC21716199C053C006E0D7A /* Localizable.strings */; };
 		75BFF4B041DC4B659C773A9A /* libPods-fortfitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C12F78267994F2FA762A378 /* libPods-fortfitness.a */; };
 /* End PBXBuildFile section */
 
@@ -85,7 +86,13 @@
 		4A4B555C198716FD0071B182 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		4A5474A0198AF4B900E13A4B /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		4A859E441989AFA200A985A0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		B1D18CBFD3A54A80905A80CF /* Pods-ffitness.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ffitness.xcconfig"; path = "Pods/Pods-ffitness.xcconfig"; sourceTree = "<group>"; };
+		4AC21716199C053C006E0D7A /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		4AC21718199C0579006E0D7A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		4AC21719199C0579006E0D7A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4AC2171A199C0579006E0D7A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4AC2171B199C0594006E0D7A /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
+		4AC2171C199C0594006E0D7A /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4AC2171D199C0594006E0D7A /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +132,6 @@
 				4A3F75601986E1C800DDA3B1 /* ffitnessTests */,
 				4A3F753A1986E1C800DDA3B1 /* Frameworks */,
 				4A3F75391986E1C800DDA3B1 /* Products */,
-				B1D18CBFD3A54A80905A80CF /* Pods-ffitness.xcconfig */,
 				2C40684275874A4AB0F23F82 /* Pods-fortfitness.xcconfig */,
 			);
 			sourceTree = "<group>";
@@ -189,6 +195,7 @@
 				4A3F75441986E1C800DDA3B1 /* InfoPlist.strings */,
 				4A3F75471986E1C800DDA3B1 /* main.m */,
 				4A3F75491986E1C800DDA3B1 /* fortfitness-Prefix.pch */,
+				4AC21716199C053C006E0D7A /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -289,6 +296,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				uk,
 			);
 			mainGroup = 4A3F752F1986E1C800DDA3B1;
 			productRefGroup = 4A3F75391986E1C800DDA3B1 /* Products */;
@@ -306,6 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AC21717199C053C006E0D7A /* Localizable.strings in Resources */,
 				4A3AA45719879F2A00AE3551 /* logo_font.ttf in Resources */,
 				4A3F75541986E1C800DDA3B1 /* Images.xcassets in Resources */,
 				4A3F75461986E1C800DDA3B1 /* InfoPlist.strings in Resources */,
@@ -395,6 +405,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4A3F75451986E1C800DDA3B1 /* en */,
+				4AC21719199C0579006E0D7A /* ru */,
+				4AC2171C199C0594006E0D7A /* uk */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -403,6 +415,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4A3F754E1986E1C800DDA3B1 /* Base */,
+				4AC21718199C0579006E0D7A /* ru */,
+				4AC2171B199C0594006E0D7A /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -411,6 +425,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4A3F75641986E1C800DDA3B1 /* en */,
+				4AC2171A199C0579006E0D7A /* ru */,
+				4AC2171D199C0594006E0D7A /* uk */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

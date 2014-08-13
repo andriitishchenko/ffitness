@@ -1,0 +1,45 @@
+
+/* Class = "IBUINavigationItem"; title = "Barcode scanner"; ObjectID = "1sy-Px-knD"; */
+"1sy-Px-knD.title" = "Сканер коду";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "99u-DY-SlI"; */
+"99u-DY-SlI.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Card number"; ObjectID = "9JU-38-cBL"; */
+"9JU-38-cBL.text" = "Номер карти";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "HD8-r0-nxY"; */
+"HD8-r0-nxY.text" = "Label";
+
+/* Class = "IBUIViewController"; title = "Authorization"; ObjectID = "Mde-rb-Nbf"; */
+"Mde-rb-Nbf.title" = "Вхід";
+
+/* Class = "IBUILabel"; text = "Date of birthday"; ObjectID = "NQo-Fc-DS6"; */
+"NQo-Fc-DS6.text" = "Дата народження";
+
+/* Class = "IBUIButton"; normalTitle = "Authorization"; ObjectID = "Pud-Db-xIb"; */
+"Pud-Db-xIb.normalTitle" = "Вхід";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "RaD-Bo-t86"; */
+"RaD-Bo-t86.text" = "Label";
+
+/* Class = "IBUIButton"; normalTitle = "(044) 361-06-11"; ObjectID = "VJ8-Pt-luN"; */
+"VJ8-Pt-luN.normalTitle" = "(044) 361-06-11";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "efw-GB-28j"; */
+"efw-GB-28j.text" = "Label";
+
+/* Class = "IBUILabel"; text = "Detail"; ObjectID = "f6W-LS-yiC"; */
+"f6W-LS-yiC.text" = "Detail";
+
+/* Class = "IBUITextField"; placeholder = "##########"; ObjectID = "h3u-cz-6u4"; */
+"h3u-cz-6u4.placeholder" = "##########";
+
+/* Class = "IBUIBarButtonItem"; title = "<"; ObjectID = "lYR-Vf-Ib2"; */
+"lYR-Vf-Ib2.title" = "<";
+
+/* Class = "IBUIButton"; normalTitle = "Log Out"; ObjectID = "npv-Gy-eeK"; */
+"npv-Gy-eeK.normalTitle" = "Вихід";
+
+/* Class = "IBUIButton"; normalTitle = "fort-fitness@mail.ru"; ObjectID = "zyF-oF-Zec"; */
+"zyF-oF-Zec.normalTitle" = "fort-fitness@mail.ru";
