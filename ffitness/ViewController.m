@@ -33,6 +33,9 @@
     }
     else
     {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeIndeterminate;
+        hud.labelText = NSLocalizedString(@"Loading...",@"Loading...");
         self.textFieldCard.text = [self.postCredentials objectForKey:@"card"];
         
         NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -50,6 +53,7 @@
             if (response && !error) {
                 self.datasource = (NSMutableDictionary*)response;
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
                     [self performSegueWithIdentifier:@"viewDetails" sender:self.view];
                 });
 
@@ -180,9 +184,16 @@
     if ([self.textFieldCard.text length]==0) {
         return;
     }
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.labelText = NSLocalizedString(@"Loading...",@"Loading...");
+    
     [self.postCredentials setObject:[self.textFieldCard.text copy] forKey:@"card"];
 
     [[API sharedInstance] userLogIn:self.postCredentials Complete:^(id response, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
         if (!error && response) {
             self.datasource = (NSMutableDictionary*)response;
             

@@ -13,6 +13,7 @@
 
 @interface TableViewController ()<MFMailComposeViewControllerDelegate>
 @property(strong,nonatomic) NSArray*keys ;
+@property (nonatomic) BOOL loading;
 @end
 
 @implementation TableViewController
@@ -42,9 +43,6 @@
 
     self.navigationItem.rightBarButtonItem = btnSetting;
     
-//    NSMutableDictionary*oldD = [[[NSUserDefaults standardUserDefaults] objectForKey:BACKGROUND_DATA_KEY] mutableCopy];
-//    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
 }
 - (IBAction)buttonEmail_click:(id)sender {
     [self sendEmail];
@@ -56,12 +54,21 @@
 
 
 -(IBAction)refresh:(id)sender{
+    if (self.loading == YES) {
+        return;
+    }
+    self.loading = YES;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.labelText = NSLocalizedString(@"Loading...",@"Loading...");
     [[API sharedInstance] getUpdatesOnComplete:^(id response, NSError *error) {
         if (response && !error) {
             self.datasource = (NSMutableDictionary*)response;
-            
-            
             [self.tableView reloadDataInMainThread];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
+            self.loading = NO;
         }
     }];
 }

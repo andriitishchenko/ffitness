@@ -37,6 +37,8 @@
 
 #define SETTINGS_KEY_EMAIL @"fort-fitness@mail.ru"
 #define SETTINGS_KEY_PHONE @"0443610611"
+
+#import <MBProgressHUD/MBProgressHUD.h>
 #endif
 
 

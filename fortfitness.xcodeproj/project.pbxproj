@@ -523,13 +523,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ignite Ltd (BE4464H94U)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ffitness/fortfitness-Prefix.pch";
 				INFOPLIST_FILE = "ffitness/fortfitness-Info.plist";
 				PRODUCT_NAME = fortfitness;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1b71bf8b-38dd-4e55-8065-654c443152bc";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -540,12 +541,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ignite Ltd (BE4464H94U)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ignite Ltd (BE4464H94U)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ffitness/fortfitness-Prefix.pch";
 				INFOPLIST_FILE = "ffitness/fortfitness-Info.plist";
 				PRODUCT_NAME = fortfitness;
 				PROVISIONING_PROFILE = "4dce0fda-323a-4751-bf60-b4d0c05b812e";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
