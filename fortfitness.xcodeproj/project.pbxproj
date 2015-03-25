@@ -48,7 +48,6 @@
 
 /* Begin PBXFileReference section */
 		01BD73191BC0448AA6CD9C24 /* libPods-ffitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ffitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C40684275874A4AB0F23F82 /* Pods-fortfitness.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fortfitness.xcconfig"; path = "Pods/Pods-fortfitness.xcconfig"; sourceTree = "<group>"; };
 		3C12F78267994F2FA762A378 /* libPods-fortfitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fortfitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3AA45619879F2A00AE3551 /* logo_font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo_font.ttf; sourceTree = "<group>"; };
 		4A3F75381986E1C800DDA3B1 /* fortfitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fortfitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +94,9 @@
 		4AC2171F199C087B006E0D7A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4AC21721199C087D006E0D7A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4AC21722199C087D006E0D7A /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7C128B60A3D7A2BFA75365C7 /* Pods-fortfitness.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fortfitness.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-fortfitness/Pods-fortfitness.adhoc.xcconfig"; sourceTree = "<group>"; };
+		E0E58F25ED21068D96115BF6 /* Pods-fortfitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fortfitness.release.xcconfig"; path = "Pods/Target Support Files/Pods-fortfitness/Pods-fortfitness.release.xcconfig"; sourceTree = "<group>"; };
+		EDED667D65D5379233FBDC01 /* Pods-fortfitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fortfitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fortfitness/Pods-fortfitness.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		052A81556FFC4BF7EBF765FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EDED667D65D5379233FBDC01 /* Pods-fortfitness.debug.xcconfig */,
+				E0E58F25ED21068D96115BF6 /* Pods-fortfitness.release.xcconfig */,
+				7C128B60A3D7A2BFA75365C7 /* Pods-fortfitness.adhoc.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4A3F752F1986E1C800DDA3B1 = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +146,7 @@
 				4A3F75601986E1C800DDA3B1 /* ffitnessTests */,
 				4A3F753A1986E1C800DDA3B1 /* Frameworks */,
 				4A3F75391986E1C800DDA3B1 /* Products */,
-				2C40684275874A4AB0F23F82 /* Pods-fortfitness.xcconfig */,
+				052A81556FFC4BF7EBF765FC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -363,7 +375,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-fortfitness-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fortfitness/Pods-fortfitness-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -478,7 +490,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -511,7 +523,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -519,11 +531,11 @@
 		};
 		4A3F756B1986E1C800DDA3B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C40684275874A4AB0F23F82 /* Pods-fortfitness.xcconfig */;
+			baseConfigurationReference = EDED667D65D5379233FBDC01 /* Pods-fortfitness.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ignite Ltd (BE4464H94U)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ffitness/fortfitness-Prefix.pch";
@@ -531,24 +543,26 @@
 				PRODUCT_NAME = fortfitness;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		4A3F756C1986E1C800DDA3B1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C40684275874A4AB0F23F82 /* Pods-fortfitness.xcconfig */;
+			baseConfigurationReference = E0E58F25ED21068D96115BF6 /* Pods-fortfitness.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Ignite Ltd (BE4464H94U)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ignite Ltd (BE4464H94U)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ffitness/fortfitness-Prefix.pch";
 				INFOPLIST_FILE = "ffitness/fortfitness-Info.plist";
 				PRODUCT_NAME = fortfitness;
 				PROVISIONING_PROFILE = "4dce0fda-323a-4751-bf60-b4d0c05b812e";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -620,7 +634,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -628,18 +642,19 @@
 		};
 		4A7D760219B2103A00132675 /* AdHoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C40684275874A4AB0F23F82 /* Pods-fortfitness.xcconfig */;
+			baseConfigurationReference = 7C128B60A3D7A2BFA75365C7 /* Pods-fortfitness.adhoc.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ignite Ltd (BE4464H94U)";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ignite Ltd (BE4464H94U)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ffitness/fortfitness-Prefix.pch";
 				INFOPLIST_FILE = "ffitness/fortfitness-Info.plist";
 				PRODUCT_NAME = fortfitness;
-				PROVISIONING_PROFILE = "bd2577e0-19bd-4a47-9b1d-4ec9fad8bb36";
+				PROVISIONING_PROFILE = "cfe5ac2f-f851-4d0a-8920-273da343d2a0";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = AdHoc;
